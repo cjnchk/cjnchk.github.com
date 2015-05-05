@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-05-05T09:05:33.000Z</updated>
+  <updated>2015-05-05T09:28:35.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,13 +19,8 @@
     <link href="http://yoursite.com/2015/05/04/Hexo-for-GitHub/"/>
     <id>http://yoursite.com/2015/05/04/Hexo-for-GitHub/</id>
     <published>2015-05-04T14:49:31.000Z</published>
-    <updated>2015-05-05T09:05:33.000Z</updated>
-    <content type="html"><![CDATA[<p>&lt;!doctype html&gt;</p>
-<p><html></html></p>
-<p><head><br>    <meta charset="utf-8"><br>    <title>Hexo for GitHub</title><br>    <meta name="keywords" content=""><br>    <meta name="description" content="此令一出，谁与争锋"><br>    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"><br>    <meta name="viewport" content="width=device-width, initial-scale=1"><br>    <link rel="stylesheet" type="text/css" href="/css/style.css"><br></head></p>
-<p><body><br><!-- 多说评论框 start --><br>    <div class="ds-thread" data-thread-key="" data-title="Hexo for GitHub" data-url="https://cjnchk.github.io/2015/05/04/Hexo-for-GitHub/"></div><br><!-- 多说评论框 end --><br></body><br><br><!-- 多说公共JS代码 start (一个网页只需插入一次) --></p>
-<p><script type="text/javascript"><br>var duoshuoQuery = {short_name:”cjnchk”};<br>    (function() {<br>        var ds = document.createElement(‘script’);<br>        ds.type = ‘text/javascript’;ds.async = true;<br>        ds.src = (document.location.protocol == ‘https:’ ? ‘https:’ : ‘http:’) + ‘//static.duoshuo.com/embed.unstable.js’;<br>        ds.charset = ‘UTF-8’;<br>        (document.getElementsByTagName(‘head’)[0]<br>         || document.getElementsByTagName(‘body’)[0]).appendChild(ds);<br>    })();<br>    </script><br><!-- 多说公共JS代码 end --></p>
-]]></content>
+    <updated>2015-05-05T09:28:35.000Z</updated>
+    <content type="html"></content>
     <summary type="html">
     <![CDATA[Hexo安装及GitHub部署]]>
     
