@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-05-05T14:59:52.000Z</updated>
+  <updated>2015-05-05T15:37:50.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,9 +19,21 @@
     <link href="http://yoursite.com/2015/05/04/Hexo-for-GitHub/"/>
     <id>http://yoursite.com/2015/05/04/Hexo-for-GitHub/</id>
     <published>2015-05-04T14:49:31.000Z</published>
-    <updated>2015-05-05T14:59:52.000Z</updated>
-    <content type="html"><![CDATA[<p><strong>此处是一级强调的意思</strong></p>
-]]></content>
+    <updated>2015-05-05T15:37:50.000Z</updated>
+    <content type="html"><![CDATA[<p>** 这是粗体</p>
+<p>__ 这还是粗体</p>
+<ul>
+<li>这是斜体</li>
+</ul>
+<p>_ 还是还是斜体</p>
+<ul>
+<li>还可以<br>跨行哦 *</li>
+</ul>
+<h2 id="分割线来了">分割线来了</h2><blockquote>
+<p>这里是引用的一段话</p>
+</blockquote>
+<h1 id="大标题">大标题</h1><h2 id="小标题">小标题</h2><h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><p>…</p>
+<h6 id="六级标题">六级标题</h6>]]></content>
     <summary type="html">
     <![CDATA[Hexo安装及GitHub部署]]>
     
