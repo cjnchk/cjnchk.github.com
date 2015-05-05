@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-05-05T06:56:36.000Z</updated>
+  <updated>2015-05-05T08:37:42.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/05/04/Hexo-for-GitHub/"/>
     <id>http://yoursite.com/2015/05/04/Hexo-for-GitHub/</id>
     <published>2015-05-04T14:49:31.000Z</published>
-    <updated>2015-05-05T06:56:36.000Z</updated>
+    <updated>2015-05-05T08:37:42.000Z</updated>
     <content type="html"><![CDATA[<p>&lt;!DOCTYPE html&gt;<br><!--[if IE 6]><html class="ie lt-ie8"><![endif]--><br><!--[if IE 7]><html class="ie lt-ie8"><![endif]--><br><!--[if IE 8]><html class="ie ie8"><![endif]--><br><!--[if IE 9]><html class="ie ie9"><![endif]--><br><!--[if !IE]><!--> <html> <!--<![endif]--></html></p>
   <head><br>  <meta charset="utf-8"><br>  <meta http-equiv="X-UA-Compatible" content="IE=Edge"><br>  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no"><br>  <meta http-equiv="Cache-Control" content="no-siteapp"><br>    <meta name="description" content=" Hexo简介 
 
