@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-05-05T16:49:32.000Z</updated>
+  <updated>2015-05-07T08:07:49.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,11 +15,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[PHP学习笔记-理论总结]]></title>
+    <link href="http://yoursite.com/2015/05/06/PHP%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%90%86%E8%AE%BA%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2015/05/06/PHP学习笔记-理论总结/</id>
+    <published>2015-05-06T14:22:04.000Z</published>
+    <updated>2015-05-07T08:07:49.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="PHP学习笔记-深入理解MVC架构">PHP学习笔记-深入理解MVC架构</h1><h2 id="析构函数的触发">析构函数的触发</h2>undefined
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span>
+</span>{
+    <span class="keyword">echo</span> <span class="variable">$a</span>;
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="PHP学习笔记-深入理解MVC架构">PHP学习笔记-深入理解MVC架构</h1><h2 id="析构函数的触发">析构函数的触发</h2>undefined
+<pre><code><span class="function"><span class="keywo]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Hexo for GitHub]]></title>
     <link href="http://yoursite.com/2015/05/04/Hexo-for-GitHub/"/>
     <id>http://yoursite.com/2015/05/04/Hexo-for-GitHub/</id>
     <published>2015-05-04T14:49:31.000Z</published>
-    <updated>2015-05-05T16:49:32.000Z</updated>
+    <updated>2015-05-07T08:07:49.000Z</updated>
     <content type="html"><![CDATA[<p><strong>这是粗体</strong></p>
 <p><strong>这还是粗体</strong></p>
 <p><em>这是斜体</em></p>
