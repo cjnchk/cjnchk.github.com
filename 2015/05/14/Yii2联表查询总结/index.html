@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>HK.C</title>
+  <title>Yii2联表查询总结 | HK.C</title>
   <meta name="author" content="耳东程">
+  
+  <meta name="description" content="查询实例
+首先介绍一下代码结构：  1.controller层：负责接受前端数据，并做一些补充，代码相对简单  2.service层：负责业务逻辑处理，并将数据返回给controller，代码比较复杂  3.DAO层：负责与数据库交互，主要是通过model层  4.model层：通过Yii2代码生成">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Yii2联表查询总结"/>
   <meta property="og:site_name" content="HK.C"/>
 
   
@@ -42,8 +45,7 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
     <div class="gallery">
   <div class="photoset">
@@ -67,7 +69,7 @@
       
       
   
-    <h1 class="title"><a href="/2015/05/14/Yii2联表查询总结/">Yii2联表查询总结</a></h1>
+    <h1 class="title">Yii2联表查询总结</h1>
   
 
     </header>
@@ -84,53 +86,35 @@
     <footer>
       
         
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
   
-    <div class="gallery">
-  <div class="photoset">
+  <div class="categories">
+    <a href="/categories/Yii2/">Yii2</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Yii2-联表-查询/">Yii2 联表 查询</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      
-        <img src="">
-      
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
     
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-05-06T14:22:04.000Z"><a href="/2015/05/06/PHP学习笔记-理论总结/">2015-05-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/05/06/PHP学习笔记-理论总结/">PHP学习笔记-理论总结</a></h1>
-  
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
-    </header>
-    <div class="entry">
-      
-        <h1 id="PHP学习笔记-深入理解MVC架构">PHP学习笔记-深入理解MVC架构</h1><h6 id="析构函数的触发">析构函数的触发</h6><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$a</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-        
       
       <div class="clearfix"></div>
     </footer>
@@ -138,115 +122,27 @@
 </article>
 
 
+<section id="comment">
+  <h1 class="title">留言</h1>
 
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-05-04T14:49:31.000Z"><a href="/2015/05/04/Hexo-for-GitHub/">2015-05-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/05/04/Hexo-for-GitHub/">Hexo for GitHub</a></h1>
-  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 
-    </header>
-    <div class="entry">
-      
-        <p><strong>这是粗体</strong></p>
-<p><strong>这还是粗体</strong></p>
-<p><em>这是斜体</em></p>
-<p><em>还是还是斜体</em></p>
-<p><em>还可以<br>跨行哦</em></p>
-<p>分割线来了</p>
-<hr>
-<blockquote>
-<p>这里是引用的一段话</p>
-</blockquote>
-<h1 id="大标题">大标题</h1><h2 id="小标题">小标题</h2><h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h6 id="六级标题">六级标题</h6><ul>
-<li>原来这就是传输中ul&gt;li标签</li>
-<li>还必须有空格<ul>
-<li>嵌套一下</li>
-</ul>
-<ul>
-<li>再来一下</li>
-</ul>
-<ul>
-<li>又嵌套了</li>
-</ul>
-</li>
-</ul>
-<p>这是<a href="http://www.google.com" target="_blank" rel="external">Baidu</a></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>val s = <span class="string">"hello Markdown"</span>
-<span class="function"><span class="title">println</span><span class="params">( s )</span></span>
-</code></pre><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></span><br><span class="line">markdown = <span class="constant">Redcarpet</span>.new(<span class="string">"Hello World!"</span>)</span><br><span class="line">puts markdown.to_html</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-05-04T14:40:02.000Z"><a href="/2015/05/04/hello-world/">2015-05-04</a></time>
-      
+<div class="fb-comments" data-href="http://yoursite.com/2015/05/14/Yii2联表查询总结/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
-    <h1 class="title"><a href="/2015/05/04/hello-world/">Hello World</a></h1>
-  
+</section>
 
-    </header>
-    <div class="entry">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-<nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav></div></div>
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

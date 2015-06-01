@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-05-08T15:33:28.000Z</updated>
+  <updated>2015-06-01T03:49:59.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Yii2联表查询总结]]></title>
+    <link href="http://yoursite.com/2015/05/14/Yii2%E8%81%94%E8%A1%A8%E6%9F%A5%E8%AF%A2%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2015/05/14/Yii2联表查询总结/</id>
+    <published>2015-05-14T02:19:19.000Z</published>
+    <updated>2015-06-01T03:49:59.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="查询实例">查询实例</h1><ul>
+<li>首先介绍一下代码结构：<br>  1.controller层：负责接受前端数据，并做一些补充，代码相对简单<br>  2.service层：负责业务逻辑处理，并将数据返回给controller，代码比较复杂<br>  3.DAO层：负责与数据库交互，主要是通过model层<br>  4.model层：通过Yii2代码生成器生成，主要是对业务表的映射<br>  5.view层：负责接受<br>*<br>1.controller层<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomerController</span> <span class="keyword">extends</span> <span class="title">BaseController</span> </span>&#123;</span><br><span class="line">       <span class="comment">/**</span><br><span class="line">         * 客源管理首页</span><br><span class="line">         */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span><span class="params">()</span></span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="variable">$search</span> = Yii::<span class="variable">$app</span>-&gt;request-&gt;get();</span><br><span class="line">            <span class="variable">$id</span> = Yii::<span class="variable">$app</span>-&gt;user-&gt;id;</span><br><span class="line">            <span class="variable">$EStateObj</span> = EStateAgent::instance();</span><br><span class="line">            <span class="variable">$EStateObj</span>-&gt;initEstateAgent(<span class="variable">$id</span>);</span><br><span class="line">            <span class="variable">$idList</span> = <span class="variable">$EStateObj</span>-&gt;getIdList();</span><br><span class="line">            <span class="variable">$res</span> = CustomerService::getCustomerInfo(<span class="variable">$idList</span>, <span class="variable">$search</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$this</span> -&gt; render(<span class="string">'index'</span>,[</span><br><span class="line">                <span class="string">'data'</span> =&gt; <span class="variable">$res</span>[<span class="string">'data'</span>],</span><br><span class="line">                <span class="string">'pages'</span> =&gt; <span class="variable">$res</span>[<span class="string">'pages'</span>],</span><br><span class="line">                <span class="string">'search'</span> =&gt; <span class="variable">$res</span>[<span class="string">'search'</span>],</span><br><span class="line">                <span class="string">'target'</span> =&gt; <span class="variable">$res</span>[<span class="string">'target'</span>],</span><br><span class="line">                <span class="string">'statistic'</span> =&gt; <span class="variable">$res</span>[<span class="string">'statistic'</span>]</span><br><span class="line">            ]);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>2.service<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomerService</span></span><br><span class="line"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="查询实例">查询实例</h1><ul>
+<li>首先介绍一下代码结构：<br>  1.controller层：负责接受前端数据，并做一些补充，代码相对简单<br>  2.service层：负责业务逻辑处理，并将数据返回给controller，代码比较复杂<br> ]]>
+    </summary>
+    
+      <category term="Yii2 联表 查询" scheme="http://yoursite.com/tags/Yii2-%E8%81%94%E8%A1%A8-%E6%9F%A5%E8%AF%A2/"/>
+    
+      <category term="Yii2" scheme="http://yoursite.com/categories/Yii2/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[PHP学习笔记-理论总结]]></title>
