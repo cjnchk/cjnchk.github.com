@@ -63,68 +63,19 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-05-14T02:19:19.000Z"><a href="/2015/05/14/Yii2联表查询总结/">2015-05-14</a></time>
+        <time datetime="2015-06-23T15:32:46.000Z"><a href="/2015/06/23/A-Good-Start/">2015-06-23</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/05/14/Yii2联表查询总结/">Yii2联表查询总结</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="查询实例">查询实例</h1><ul>
-<li>首先介绍一下代码结构：<br>  1.controller层：负责接受前端数据，并做一些补充，代码相对简单<br>  2.service层：负责业务逻辑处理，并将数据返回给controller，代码比较复杂<br>  3.DAO层：负责与数据库交互，主要是通过model层<br>  4.model层：通过Yii2代码生成器生成，主要是对业务表的映射<br>  5.view层：负责接受<br>*<br>1.controller层<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomerController</span> <span class="keyword">extends</span> <span class="title">BaseController</span> </span>&#123;</span><br><span class="line">       <span class="comment">/**</span><br><span class="line">         * 客源管理首页</span><br><span class="line">         */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span><span class="params">()</span></span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="variable">$search</span> = Yii::<span class="variable">$app</span>-&gt;request-&gt;get();</span><br><span class="line">            <span class="variable">$id</span> = Yii::<span class="variable">$app</span>-&gt;user-&gt;id;</span><br><span class="line">            <span class="variable">$EStateObj</span> = EStateAgent::instance();</span><br><span class="line">            <span class="variable">$EStateObj</span>-&gt;initEstateAgent(<span class="variable">$id</span>);</span><br><span class="line">            <span class="variable">$idList</span> = <span class="variable">$EStateObj</span>-&gt;getIdList();</span><br><span class="line">            <span class="variable">$res</span> = CustomerService::getCustomerInfo(<span class="variable">$idList</span>, <span class="variable">$search</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$this</span> -&gt; render(<span class="string">'index'</span>,[</span><br><span class="line">                <span class="string">'data'</span> =&gt; <span class="variable">$res</span>[<span class="string">'data'</span>],</span><br><span class="line">                <span class="string">'pages'</span> =&gt; <span class="variable">$res</span>[<span class="string">'pages'</span>],</span><br><span class="line">                <span class="string">'search'</span> =&gt; <span class="variable">$res</span>[<span class="string">'search'</span>],</span><br><span class="line">                <span class="string">'target'</span> =&gt; <span class="variable">$res</span>[<span class="string">'target'</span>],</span><br><span class="line">                <span class="string">'statistic'</span> =&gt; <span class="variable">$res</span>[<span class="string">'statistic'</span>]</span><br><span class="line">            ]);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>2.service<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomerService</span></span><br><span class="line"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-05-06T14:22:04.000Z"><a href="/2015/05/06/PHP学习笔记-理论总结/">2015-05-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/05/06/PHP学习笔记-理论总结/">PHP学习笔记-理论总结</a></h1>
+    <h1 class="title"><a href="/2015/06/23/A-Good-Start/">A Good Start</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h1 id="PHP学习笔记-深入理解MVC架构">PHP学习笔记-深入理解MVC架构</h1><h6 id="析构函数的触发">析构函数的触发</h6><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$a</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <pre><code>每每都想提笔写点什么，却每每不知从何写起，是码代码的姿势不对，还是思想上出现了偏差，MarkDown的语法也
+</code></pre><p>是用的磕磕绊绊。<br>    以前总是这里写一点，那里写一点，勾勾画画，转转贴贴，不曾想静下心来写点什么。<br>    而今，每日匆匆忙忙，却也不知时间都哪里去了，或吃了，或玩了，或走在上下班的路上。<br>端午去了趟青岛，看了看老婆，吹了吹海风，回到北京又是雾里有霾，闷热的很，随每每思念，却也乐得逍遥，不知老婆看了<br>会不会暗自思忖，你丫是不是皮松了。不过，算是又有闲暇看点、写点、思考点。</p>
+
       
     </div>
     <footer>
@@ -256,22 +207,11 @@
 </div>
 
   
-<div class="widget tag">
-  <h3 class="title">分类</h3>
-  <ul class="entry">
-  
-    <li><a href="/categories/Yii2/">Yii2</a><small>1</small></li>
-  
-  </ul>
-</div>
-
 
   
 <div class="widget tag">
   <h3 class="title">标签</h3>
   <ul class="entry">
-  
-    <li><a href="/tags/Yii2-联表-查询/">Yii2 联表 查询</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
@@ -287,11 +227,7 @@
   <ul class="entry">
     
       <li>
-        <a href="/2015/05/14/Yii2联表查询总结/">Yii2联表查询总结</a>
-      </li>
-    
-      <li>
-        <a href="/2015/05/06/PHP学习笔记-理论总结/">PHP学习笔记-理论总结</a>
+        <a href="/2015/06/23/A-Good-Start/">A Good Start</a>
       </li>
     
       <li>
@@ -310,7 +246,7 @@
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/Yii2-联表-查询/" style="font-size: NaNpx;">Yii2 联表 查询</a><a href="/tags/hexo/" style="font-size: NaNpx;">hexo</a>
+    <a href="/tags/hexo/" style="font-size: NaNpx;">hexo</a>
   </div>
 </div>
 
