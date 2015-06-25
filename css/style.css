@@ -77,7 +77,7 @@ a:hover {
   }
 }
 #main-col {
-  width: 900px;
+  width: 800px;
 }
 @media screen and (max-width: 1260px) {
   #main-col {
