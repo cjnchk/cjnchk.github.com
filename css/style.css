@@ -51,10 +51,10 @@ a:hover {
   text-decoration: underline;
 }
 .alignleft {
-  float: left;
+  float: right;
 }
 .alignright {
-  float: right;
+  float: left;
 }
 .clearfix {
   zoom: 1;
@@ -71,7 +71,7 @@ a:hover {
   width: 1200px;
   margin: 0 auto;
 }
-@media screen and (max-width: 1260px) {
+@media screen and (max-width: 1100px) {
   .inner {
     width: 100%;
   }
