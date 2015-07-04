@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[HK.C]]></title>
-  <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下去]]></subtitle>
+  
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
   <updated>2015-06-30T13:23:29.000Z</updated>
