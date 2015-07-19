@@ -3,13 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>HK.C</title>
+  <title>Redis 批量插入 | HK.C</title>
   <meta name="author" content="耳东程">
+  
+  <meta name="description" content="Redis 批量插入有时候，一些redis用例需要在短时间内插入大量已有，或是由用户临时生成的数据，以至于百万级的键-值需要在尽可能短的时间内创建。
+这就称作批量插入，这篇文档的目的就是探讨怎样尽可能快的往redis插入数据。
+使用协议因为某些原因，使用一个普通的redis客户端来实现数据的批量插入">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Redis 批量插入"/>
   <meta property="og:site_name" content="HK.C"/>
 
   
@@ -42,8 +46,7 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
     <div class="gallery">
   <div class="photoset">
@@ -67,7 +70,7 @@
       
       
   
-    <h1 class="title"><a href="/2015/07/19/Redis-批量插入/">Redis 批量插入</a></h1>
+    <h1 class="title">Redis 批量插入</h1>
   
 
     </header>
@@ -118,6 +121,29 @@ value<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</
       
         
         
+  
+  <div class="tags">
+    <a href="/tags/redis/">redis</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
       
       <div class="clearfix"></div>
     </footer>
@@ -125,455 +151,27 @@ value<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</
 </article>
 
 
+<section id="comment">
+  <h1 class="title">留言</h1>
 
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T10:20:07.000Z"><a href="/2015/07/19/php7/">2015-07-19</a></time>
-      
+<div class="fb-comments" data-href="http://yoursite.com/2015/07/19/Redis-批量插入/index.html" data-num-posts="5" data-width="760" data-colorscheme="light"></div>
       
   
-    <h1 class="title"><a href="/2015/07/19/php7/">php7</a></h1>
-  
+</section>
 
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T09:58:06.000Z"><a href="/2015/07/19/随笔/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/随笔/">随笔</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T09:57:28.000Z"><a href="/2015/07/19/python/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/python/">python</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T09:57:15.000Z"><a href="/2015/07/19/redis/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/redis/">redis</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T09:56:02.000Z"><a href="/2015/07/19/yii2/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/yii2/">yii2</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T09:55:46.000Z"><a href="/2015/07/19/mysql/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/mysql/">mysql</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T09:55:28.000Z"><a href="/2015/07/19/php5/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/php5/">php5</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="photo">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="http://s7.sinaimg.cn/orignal/0049hDICgy6FTtu8Zuu96">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-05-25T15:54:46.000Z"><a href="/2015/05/25/归去来兮辞/">2015-05-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/05/25/归去来兮辞/">归去来兮辞</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h4 id="东晋_陶渊明"><strong>东晋 陶渊明</strong></h4><p>　　归去来兮，田园将芜胡不归！既自以心为形役，奚惆怅而独悲？悟已往之不谏，知来者可追；实迷途其未远，觉今是而昨非。</p>
-<p>　　舟遥遥以轻飏，风飘飘而吹衣。问征夫以前路，恨晨光之熹微。乃瞻衡宇，载欣载奔。僮仆欢迎，稚子候门。三径就荒，松菊犹存。携幼入室，有酒盈樽。引壶觞以自酌，眄庭柯以怡颜；倚南窗以寄傲，审容膝之易安。园日涉以成趣，门虽设而常关；策扶老以流憩，时矫首而遐观。云无心以出岫，鸟倦飞而知还；景翳翳以将入，抚孤松而盘桓。</p>
-<p>　　归去来兮，请息交以绝游。世与我而相违，复驾言兮焉求！悦亲戚之情话，乐琴书以消忧。农人告余以春及，将有事于西畴。或命巾车，或棹孤舟。既窈窕以寻壑，亦崎岖而经丘。木欣欣以向荣，泉涓涓而始流。善万物之得时，感吾生之行休。</p>
-<p>　　已矣乎！寓形宇内复几时，曷不委心任去留，胡为乎遑遑欲何之？富贵非吾愿，帝乡不可期。怀良辰以孤往，或植杖而耘耔。登东皋以舒啸，临清流而赋诗。聊乘化以归尽，乐夫天命复奚疑！</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-05-04T14:49:31.000Z"><a href="/2015/05/04/Hexo-for-GitHub/">2015-05-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/05/04/Hexo-for-GitHub/">Hexo for GitHub</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><strong>这是粗体</strong></p>
-<p><strong>这还是粗体</strong></p>
-<p><em>这是斜体</em></p>
-<p><em>还是还是斜体</em></p>
-<p><em>还可以<br>跨行哦</em></p>
-<p>分割线来了</p>
-<hr>
-<blockquote>
-<p>这里是引用的一段话</p>
-</blockquote>
-<h1 id="大标题">大标题</h1><h2 id="小标题">小标题</h2><h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h6 id="六级标题">六级标题</h6><ul>
-<li>原来这就是传输中ul&gt;li标签</li>
-<li>还必须有空格<ul>
-<li>嵌套一下</li>
-</ul>
-<ul>
-<li>再来一下</li>
-</ul>
-<ul>
-<li>又嵌套了</li>
-</ul>
-</li>
-</ul>
-<p>这是<a href="http://www.google.com" target="_blank" rel="external">Baidu</a></p>
-<!-- ￼0 -->
-<pre><code>val s = <span class="string">"hello Markdown"</span>
-<span class="function"><span class="title">println</span><span class="params">( s )</span></span>
-</code></pre><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></span><br><span class="line">markdown = <span class="constant">Redcarpet</span>.new(<span class="string">"Hello World!"</span>)</span><br><span class="line">puts markdown.to_html</span><br></pre></td></tr></table></figure>
-<h2 id="下面是MarkDown语法">下面是MarkDown语法</h2><p>这是一段代码</p>
-<pre><code>{
-    <span class="string">'redis'</span>:<span class="string">'get'</span>,
-    <span class="string">'name'</span>:<span class="string">'cjnchk'</span>,
-    <span class="string">'age'</span>:<span class="string">'18'</span>
-}
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-<nav id="pagination">
-  
-  
-    <a href="/page/2/" class="alignright next">下一页</a>
-  
-  <div class="clearfix"></div>
-</nav></div></div>
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
