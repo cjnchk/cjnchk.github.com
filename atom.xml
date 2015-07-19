@@ -4,7 +4,7 @@
   <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下来]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-07-19T12:34:05.000Z</updated>
+  <updated>2015-07-19T12:38:38.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <link href="http://yoursite.com/2015/07/19/Redis-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5/"/>
     <id>http://yoursite.com/2015/07/19/Redis-批量插入/</id>
     <published>2015-07-19T10:43:43.000Z</published>
-    <updated>2015-07-19T12:34:05.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="Redis_批量插入">Redis 批量插入</h2><p>有时候，一些redis用例需要在短时间内插入大量已有，或是由用户临时生成的数据，以至于百万级的键-值需要在尽可能短的时间内创建。</p>
+    <updated>2015-07-19T12:38:38.000Z</updated>
+    <content type="html"><![CDATA[<p>有时候，一些redis用例需要在短时间内插入大量已有，或是由用户临时生成的数据，以至于百万级的键-值需要在尽可能短的时间内创建。</p>
 <p>这就称作<em>批量插入</em>，这篇文档的目的就是探讨怎样尽可能快的往redis插入数据。</p>
 <h3 id="使用协议">使用协议</h3><p>因为某些原因，使用一个普通的redis客户端来实现数据的批量插入并不可取，比如：一个很小白的方式就是，一个命令接一个命令的发送，这样会很慢，因为每一个命令都会消耗一个回路的时间。这种情况也许可以使用管道方式（<a href="http://redis.io/topics/pipelining" target="_blank" rel="external">pipeling</a>）来解决，但是对于多条数据的批量插入，你需要读取返回值的同时创建新命令，还要确保尽可能快的插入。</p>
 <p>只有少量的客户端支持非阻塞I/O（貌似是说大多数redis客户端是单线程的），并且不是所有的客户端有能力以一种有效的方式解析返回数据以实现吞吐量的最大化。由于上面的一些原因，向redis批量插入数据的首选方式便是生成一个包含redis协议的文件（RAW格式），以便调用所需的命令插入请求数据。</p>
@@ -47,7 +47,7 @@ $<span class="variable">&lt;len&gt;</span><span class="variable">&lt;cr&gt;</spa
 <span class="variable">&lt;args2&gt;</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 ...
 <span class="variable">&lt;argsN&gt;</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
-</code></pre><p>这里的<cr>代表”\r”(或者是ASII码 13)， <lf>代表”\n”(或者是ASII码 10)。</lf></cr></p>
+</code></pre><p>这里的<code>&lt;cr&gt;</code>代表”\r”(或者是ASII码 13)， <code>&lt;lf&gt;</code>代表”\n”(或者是ASII码 10)。</p>
 <p>举个例子，<strong>SET key value</strong>命令可以用一下协议表示：</p>
 <pre><code>*<span class="number">3</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 <span class="variable">$3</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
@@ -60,8 +60,9 @@ value<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</
 <pre><code>"*3<span class="command">\r</span><span class="command">\n</span><span class="formula">$3<span class="command">\r</span><span class="command">\nSET</span><span class="command">\r</span><span class="command">\n</span>$</span>3<span class="command">\r</span><span class="command">\nkey</span><span class="command">\r</span><span class="command">\n</span><span class="formula">$5<span class="command">\r</span><span class="command">\nvalue</span><span class="command">\r</span><span class="command">\n</span>"</span>
 </code></pre>]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="Redis_批量插入">Redis 批量插入</h2><p>有时候，一些redis用例需要在短时间内插入大量已有，或是由用户临时生成的数据，以至于百万级的键-值需要在尽可能短的时间内创建。</p>
-<p>这就称作<em>批量插入</em>，这篇文档的目的就是探讨怎]]>
+    <![CDATA[<p>有时候，一些redis用例需要在短时间内插入大量已有，或是由用户临时生成的数据，以至于百万级的键-值需要在尽可能短的时间内创建。</p>
+<p>这就称作<em>批量插入</em>，这篇文档的目的就是探讨怎样尽可能快的往redis插入数据。</p>
+<h3 id="使用协议"]]>
     </summary>
     
       <category term="redis" scheme="http://yoursite.com/tags/redis/"/>
