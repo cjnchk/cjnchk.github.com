@@ -4,7 +4,7 @@
   <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下来]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-07-19T14:46:11.000Z</updated>
+  <updated>2015-07-19T14:47:53.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,11 +19,10 @@
     <link href="http://yoursite.com/2015/07/19/Redis-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5/"/>
     <id>http://yoursite.com/2015/07/19/Redis-批量插入/</id>
     <published>2015-07-19T10:43:43.000Z</published>
-    <updated>2015-07-19T14:46:11.000Z</updated>
+    <updated>2015-07-19T14:47:53.000Z</updated>
     <content type="html"><![CDATA[<p>有时候，一些redis用例需要在短时间内插入大量已有或由用户临时生成的数据，导致百万级的键-值对需要在尽可能短的时间内创建。</p>
 <p>这就称作<em>批量插入</em>，这篇文档的目的就是探讨怎样尽可能快的向redis插入数据。</p>
-<h3 id="使用protocol"><em>使用protocol</em></h3><p><em>### 使用protocol</em></p>
-<p>因为某些原因，通过一个普通的redis客户端来实现数据的批量插入并不可取，比如：一个很小白的方式就是一个命令接一个命令的发送，这样会很慢，因为每个命令都会消耗一个回路时间（因为redis是一个client-server模式的应用，客户端和服务器可能隔了十万八千里）。这种情况也许可以通过使用管道方式（<a href="http://redis.io/topics/pipelining" target="_blank" rel="external">pipeling</a>）来解决，但是对于大量数据的批量插入，往往需要读取返回值的同时创建新命令，还要确保尽可能快的插入。</p>
+<h3 id="使用protocol"><strong> <em>使用protocol</em> </strong></h3><p>因为某些原因，通过一个普通的redis客户端来实现数据的批量插入并不可取，比如：一个很小白的方式就是一个命令接一个命令的发送，这样会很慢，因为每个命令都会消耗一个回路时间（因为redis是一个client-server模式的应用，客户端和服务器可能隔了十万八千里）。这种情况也许可以通过使用管道方式（<a href="http://redis.io/topics/pipelining" target="_blank" rel="external">pipeling</a>）来解决，但是对于大量数据的批量插入，往往需要读取返回值的同时创建新命令，还要确保尽可能快的插入。</p>
 <p>只有少量的客户端支持非阻塞I/O（貌似是说大多数redis客户端是单线程的），并且并不是所有的客户端都有能力以一种有效的方式解析返回数据以实现吞吐量的最大化。由于上面的一些原因，向redis批量插入数据的首选方式便是生成一个包含redis协议的文件，已RAW（一个没有被NT文件系统（FAT或NTFS）格式化的磁盘分区）形式格式化，以便调用相关的命令插入请求数据。</p>
 <p>举例来说，我需要生成大量的set格式数据，其中包含数以亿计的’keyN-&gt;valueN’形式的键值，我会创建一个基于Redis协议格式的包含如下命令的文件：</p>
 <pre><code><span class="built_in">SET</span> Key0 Value0
@@ -40,7 +39,7 @@
 Last reply recived <span class="built_in">from</span> server.
 Erroe: <span class="number">0</span>, replies: <span class="number">100000</span>
 </code></pre><p>拥有这种模式的redis-cli同时会确保只把从Redis服务收到的错误信息输出。</p>
-<h3 id="Redis_protocol的生成（下面主要介绍protocol的生成方式，懒得看就不用来浪费时间了）">Redis protocol的生成（下面主要介绍protocol的生成方式，懒得看就不用来浪费时间了）</h3><p>Redis协议生成和解析都是十分简单的，参考文档请点击<a href="http://redis.io/topics/protocol" target="_blank" rel="external">这里</a>。然而你并不需要理解为批量插入而生成的协议的每个细节，其中的每个命令仅以如下方式呈现：</p>
+<h3 id="Redis_protocol的生成（下面主要介绍protocol的生成方式，懒得看就不用来浪费时间了）"><strong> <em>Redis protocol的生成（下面主要介绍protocol的生成方式，懒得看就不用来浪费时间了）</em> </strong></h3><p>Redis协议生成和解析都是十分简单的，参考文档请点击<a href="http://redis.io/topics/protocol" target="_blank" rel="external">这里</a>。然而你并不需要理解为批量插入而生成的协议的每个细节，其中的每个命令仅以如下方式呈现：</p>
 <pre><code><span class="keyword">*</span><span class="variable">&lt;args&gt;</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 $<span class="variable">&lt;len&gt;</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 <span class="variable">&lt;args0&gt;</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
@@ -80,7 +79,7 @@ puts gen_redis_proto(<span class="string">"SET"</span>, <span class="string">"my
 All data transferred. Waiting <span class="keyword">for</span> <span class="operator">the</span> <span class="keyword">last</span> reply...
 Last reply received <span class="built_in">from</span> server.
 errors: <span class="number">0</span>, replies: <span class="number">1000</span>
-</code></pre><h3 id="Redis引擎下_pipe_mode_是怎样工作的">Redis引擎下 pipe mode 是怎样工作的</h3><p>redis-cli内置的 pipe mode 的神奇之处在于，能够像netcat一样快，与此同时还能捕捉到服务器返回的最后一条数据。</p>
+</code></pre><h3 id="Redis引擎下_pipe_mode_是怎样工作的"><strong> <em>Redis引擎下 pipe mode 是怎样工作的</em> </strong></h3><p>redis-cli内置的 pipe mode 的神奇之处在于，能够像netcat一样快，与此同时还能捕捉到服务器返回的最后一条数据。</p>
 <p>好处如下：</p>
 <ul>
 <li><code>redis-cli --pipe</code> 尝试尽可能快的向服务器发送数据。</li>
