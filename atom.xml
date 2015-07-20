@@ -4,7 +4,7 @@
   <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下来]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-07-20T06:11:40.000Z</updated>
+  <updated>2015-07-20T06:12:35.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/07/19/Redis-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5/"/>
     <id>http://yoursite.com/2015/07/19/Redis-批量插入/</id>
     <published>2015-07-19T10:43:43.000Z</published>
-    <updated>2015-07-20T06:11:40.000Z</updated>
+    <updated>2015-07-20T06:12:35.000Z</updated>
     <content type="html"><![CDATA[<p>有时候，一些redis用例需要在短时间内插入大量已有或由用户临时生成的数据，导致百万级的键-值对需要在尽可能短的时间内创建。</p>
 <p>这就称作<em>批量插入</em>，这篇文档的目的就是探讨如何尽可能快的向redis插入数据。</p>
 <h3 id="使用protocol"><strong> <em>使用protocol</em> </strong></h3><p>因为某些原因，通过一个普通的redis客户端来实现数据的批量插入并不可取，比如：一个很小白的方式就是一个命令接一个命令的发送，这样会很慢，因为每个命令都会消耗一个回路时间（因为redis是一个client-server模式的应用，客户端和服务器可能隔了十万八千里）。这种情况也许可以通过使用管道方式（<a href="http://redis.io/topics/pipelining" target="_blank" rel="external">pipeling</a>）来解决，但是对于大量数据的批量插入，往往需要读取返回值的同时创建新命令，还要确保尽可能快的插入。</p>
@@ -57,8 +57,7 @@ SET<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</sp
 name<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 <span class="variable">$5</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 lunar<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
-</code></pre><p><em>格式说明：
-　　</em>*3 #表示有3个参数<br>　　$3 #表示“参数”有三个字节<br>　　SET #执行的命令<br>　　$34 # key有 4个字节<br>　　name #key对应的值<br>　　$5 #field对应的长度<br>　　lunar #field对应的值<br>　　每行默认以 \r\n 结尾<br>　　同时在执行完一行后，以 \r\n 代码一条语句结束*</p>
+</code></pre><p><em>格式说明：</em><br>　　<em>\</em>3 #表示有3个参数<br>　　$3 #表示“参数”有三个字节<br>　　SET #执行的命令<br>　　$34 # key有 4个字节<br>　　name #key对应的值<br>　　$5 #field对应的长度<br>　　lunar #field对应的值<br>　　每行默认以 \r\n 结尾<br>　　同时在执行完一行后，以 \r\n 代码一条语句结束*</p>
 <p>或者用一串字符串来表示：</p>
 <pre><code>"*3<span class="command">\r</span><span class="command">\n</span><span class="formula">$3<span class="command">\r</span><span class="command">\nSET</span><span class="command">\r</span><span class="command">\n</span>$</span>3<span class="command">\r</span><span class="command">\nkey</span><span class="command">\r</span><span class="command">\n</span><span class="formula">$5<span class="command">\r</span><span class="command">\nvalue</span><span class="command">\r</span><span class="command">\n</span>"</span>
 </code></pre><p>你生成的用于批量插入的文件，就是由上面的命令一个接一个的构成的。</p>
