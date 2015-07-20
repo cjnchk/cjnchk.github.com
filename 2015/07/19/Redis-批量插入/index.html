@@ -86,7 +86,7 @@
 <span class="attribute">...</span>
 <span class="built_in">SET</span> KeyN ValueN
 </code></pre><p><em>注意：<br>    用shell组成上面格式的数据后，用redis-cli —pipe方式导入，报如下错误<br>    All data transferred. Waiting for the last reply…<br>    ERR syntax error<br>    Last reply received from server.<br>    errors: 1, replies: 1<br>    经调查是因为linux文档的换行是\n,但文档要求每行的结尾是\r\n.<br>    最后用unix2dos命令将文件转换后，再执行redis-cli —pipe，不再出现错误</em></p>
-<p>经调查是因为linux文档的换行是\n,但文档要求每行的结尾是\r\n.<br>最后用unix2dos命令将文件转换后，再执行redis-cli —pipe，不再出现错误<br>一旦文件创建，接下来的事情就是尽可能快的插入到 Redis 里。过去的实现方式，是使用如下 netcat 命令：</p>
+<p>一旦文件创建，接下来的事情就是尽可能快的插入到 Redis 里。过去的实现方式，是使用如下 netcat 命令：</p>
 <pre><code>(cat data.txt; sleep <span class="number">10</span>) | nc localhost <span class="number">6379</span> &gt; <span class="regexp">/dev/</span><span class="keyword">null</span>
 </code></pre><p>然而这并不是一个实现数据批量插入的可靠方式，是因为 necat 无法确切的知道数据何时传输完毕，并且不能查错。在2.6或者以后的Redis版本里，客户端可以支持一种叫做管道模式（ pipe mode ）的新模式，用来处理批量插入。</p>
 <p>可以使用类似下面的pipe model 命令：</p>
