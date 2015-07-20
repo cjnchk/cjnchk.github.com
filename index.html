@@ -82,7 +82,7 @@
 <span class="built_in">SET</span> Key1 Value1
 <span class="attribute">...</span>
 <span class="built_in">SET</span> KeyN ValueN
-</code></pre><p><em>注意：<br>    用shell组成上面格式的数据后，用redis-cli —pipe方式导入，报如下错误<br>    All data transferred. Waiting for the last reply…<br>    ERR syntax error<br>    Last reply received from server.<br>    errors: 1, replies: 1<br>    经调查是因为linux文档的换行是\n,但文档要求每行的结尾是\r\n.<br>    最后用unix2dos命令将文件转换后，再执行redis-cli —pipe，不再出现错误</em></p>
+</code></pre><p><em>注意：<br>　　用shell组成上面格式的数据后，用redis-cli —pipe方式导入，报如下错误<br>　　All data transferred. Waiting for the last reply…<br>　　ERR syntax error<br>　　Last reply received from server.<br>　　errors: 1, replies: 1<br>　　经调查是因为linux文档的换行是\n,但文档要求每行的结尾是\r\n.<br>　　最后用unix2dos命令将文件转换后，再执行redis-cli —pipe，不再出现错误</em></p>
 <p>一旦文件创建，接下来的事情就是尽可能快的插入到 Redis 里。过去的实现方式，是使用如下 netcat 命令：</p>
 <pre><code>(cat data.txt; sleep <span class="number">10</span>) | nc localhost <span class="number">6379</span> &gt; <span class="regexp">/dev/</span><span class="keyword">null</span>
 </code></pre><p>然而这并不是一个实现数据批量插入的可靠方式，是因为 necat 无法确切的知道数据何时传输完毕，并且不能查错。在2.6或者以后的Redis版本里，客户端可以支持一种叫做管道模式（ pipe mode ）的新模式，用来处理批量插入。</p>
@@ -93,7 +93,7 @@
 Last reply recived <span class="built_in">from</span> server.
 Erroe: <span class="number">0</span>, replies: <span class="number">100000</span>
 </code></pre><p>拥有这种模式的redis-cli同时会确保只把从Redis服务收到的错误信息输出。</p>
-<h3 id="Redis_protocol的生成（下面主要介绍protocol的生成方式，懒得看就不用来浪费时间了）"><strong> <em>Redis protocol的生成（下面主要介绍protocol的生成方式，懒得看就不用来浪费时间了）</em> </strong></h3><p>Redis协议生成和解析都是十分简单的，参考文档请点击<a href="http://redis.io/topics/protocol" target="_blank" rel="external">这里</a>。然而你并不需要理解为批量插入而生成的协议的每个细节，其中的每个命令仅以如下方式呈现：</p>
+<h3 id="Redis_protocol的生成"><strong> <em>Redis protocol的生成</em> </strong></h3><p>Redis协议生成和解析都是十分简单的，参考文档请点击<a href="http://redis.io/topics/protocol" target="_blank" rel="external">这里</a>。然而你并不需要理解为批量插入而生成的协议的每个细节，其中的每个命令仅以如下方式呈现：</p>
 <pre><code><span class="keyword">*</span><span class="variable">&lt;args&gt;</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 $<span class="variable">&lt;len&gt;</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 <span class="variable">&lt;args0&gt;</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
@@ -106,11 +106,12 @@ $<span class="variable">&lt;len&gt;</span><span class="variable">&lt;cr&gt;</spa
 <pre><code>*<span class="number">3</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 <span class="variable">$3</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 SET<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
-<span class="variable">$3</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
-key<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
+<span class="variable">$4</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
+name<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 <span class="variable">$5</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
-value<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
-</code></pre><p>或者用一串字符串来表示：</p>
+lunar<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
+</code></pre><p><em>格式说明：<br>　　\</em>3 #表示有3个参数<br>　　$3 #表示“参数”有三个字节<br>　　SET #执行的命令<br>　　$34 # key有 4个字节<br>　　name #key对应的值<br>　　$5 #field对应的长度<br>　　lunar #field对应的值<br>　　每行默认以 \r\n 结尾<br>　　同时在执行完一行后，以 \r\n 代码一条语句结束*</p>
+<p>或者用一串字符串来表示：</p>
 <pre><code>"*3<span class="command">\r</span><span class="command">\n</span><span class="formula">$3<span class="command">\r</span><span class="command">\nSET</span><span class="command">\r</span><span class="command">\n</span>$</span>3<span class="command">\r</span><span class="command">\nkey</span><span class="command">\r</span><span class="command">\n</span><span class="formula">$5<span class="command">\r</span><span class="command">\nvalue</span><span class="command">\r</span><span class="command">\n</span>"</span>
 </code></pre><p>你生成的用于批量插入的文件，就是由上面的命令一个接一个的构成的。</p>
 <p>下面的Ruby函数可以用来生成一个有效的协议：</p>
