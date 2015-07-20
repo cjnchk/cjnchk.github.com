@@ -113,7 +113,7 @@ SET<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</sp
 name<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 <span class="variable">$5</span><span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
 lunar<span class="variable">&lt;cr&gt;</span><span class="variable">&lt;lf&gt;</span>
-</code></pre><p><em>格式说明：</em><br>　　*3 #表示有3个参数<br>　　$3 #表示“参数”有三个字节<br>　　SET #执行的命令<br>　　$34 # key有 4个字节<br>　　name #key对应的值<br>　　$5 #field对应的长度<br>　　lunar #field对应的值<br>　　每行默认以 \r\n 结尾<br>　　同时在执行完一行后，以 \r\n 代码一条语句结束</p>
+</code></pre><p><em>格式说明：</em><br>　　*<em>3 #表示有3个参数<br>　　$3 #表示“参数”有三个字节<br>　　SET #执行的命令<br>　　$34 # key有 4个字节<br>　　name #key对应的值<br>　　$5 #field对应的长度<br>　　lunar #field对应的值<br>　　每行默认以 \r\n 结尾<br>　　同时在执行完一行后，以 \r\n 代码一条语句结束</em></p>
 <p>或者用一串字符串来表示：</p>
 <pre><code>"*3<span class="command">\r</span><span class="command">\n</span><span class="formula">$3<span class="command">\r</span><span class="command">\nSET</span><span class="command">\r</span><span class="command">\n</span>$</span>3<span class="command">\r</span><span class="command">\nkey</span><span class="command">\r</span><span class="command">\n</span><span class="formula">$5<span class="command">\r</span><span class="command">\nvalue</span><span class="command">\r</span><span class="command">\n</span>"</span>
 </code></pre><p>你生成的用于批量插入的文件，就是由上面的命令一个接一个的构成的。</p>
