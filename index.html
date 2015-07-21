@@ -73,9 +73,11 @@
     </header>
     <div class="entry">
       
-        <p>设置默认创建时间<br><code>\</code>create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’ `</p>
-<p>设置默认更新时间并在修改时自动更新<br><code>\</code>update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT ‘修改日期’ `</p>
-
+        <p>设置默认创建时间</p>
+<pre><code><span class="subst">\</span><span class="string">`create_time\`</span> datetime <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>
+</code></pre><p>设置默认更新时间并在修改时自动更新</p>
+<pre><code><span class="subst">\</span><span class="string">`update_time\`</span> datetime <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP <span class="keyword">ON</span> UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">'修改日期'</span>
+</code></pre>
       
     </div>
     <footer>
