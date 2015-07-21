@@ -75,9 +75,8 @@
       
         <p>　　yii框架中通常包含两类入口文件，一类是针对用户的web入口，一类是针对命令行的控制台入口。要注意两个入口的一致性，否则可能在命令行层面造成相关全局常量或函数的引用缺失。</p>
 <h3 id="入口文件"><strong>入口文件</strong></h3><ul>
-<li><p>通常用来定义全局常量：如debug调用，当前运行环境</p>
-<p>  defined(‘YII_DEBUG’) or define(‘YIII_DEBUG’, true);<br>  defined(‘YII_DEV’) or define(‘YII_DEV’, ‘dev’);</p>
-</li>
+<li>通常用来定义全局常量：如debug调用，当前运行环境<br>  <code>defined(&#39;YII_DEBUG&#39;) or define(&#39;YIII_DEBUG&#39;, true);
+  defined(&#39;YII_DEV&#39;) or define(&#39;YII_DEV&#39;, &#39;dev&#39;);</code></li>
 <li><p>注册自动加载函数（composer autoloader）</p>
 <p>  require(<strong>DIR</strong> . ‘/../vender/autoload.php’);</p>
 </li>
