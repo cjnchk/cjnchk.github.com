@@ -92,41 +92,46 @@
 </li>
 </ul>
 <p><strong> <em> 大致形式如下 </em> </strong> (<em> 其中部分内容会在后面深入分析 </em>)<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="preprocessor">&lt;?php</span></span><br><span class="line">defined(<span class="string">'YII_DEBUG'</span>) <span class="keyword">or</span> define(<span class="string">'YII_DEBUG'</span>, <span class="keyword">true</span>);</span><br><span class="line">defined(<span class="string">'YII_ENV'</span>) <span class="keyword">or</span> define(<span class="string">'YII_ENV'</span>, <span class="string">'dev'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../vendor/autoload.php'</span>);</span><br><span class="line"><span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../vendor/yiisoft/yii2/Yii.php'</span>);</span><br><span class="line"><span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../common/config/bootstrap.php'</span>);</span><br><span class="line"><span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../config/bootstrap.php'</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$config</span> = yii\helpers\ArrayHelper::merge(</span><br><span class="line">    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../common/config/main.php'</span>),</span><br><span class="line">    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../common/config/main-local.php'</span>),</span><br><span class="line">    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../config/main.php'</span>),</span><br><span class="line">    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../config/main-local.php'</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="variable">$application</span> = <span class="keyword">new</span> yii\web\Application(<span class="variable">$config</span>);</span><br><span class="line"><span class="variable">$application</span>-&gt;run();</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="关于Application"><strong> 关于Application </strong></h2><p>当入口文件创建应用时，会相应的引入相关文件，加载各种配置。下面会介绍一些相关应用的配置，及主要属性。<br>其中主要部分上文实例中的<strong>main.php</strong>所包含的相关属性。<br>``<br>    &lt;?php<br>    $params = array<em>merge(<br>        require(<strong>DIR</strong> . ‘/../../common/config/params.php’),<br>        require(<strong>DIR</strong> . ‘/../../common/config/params-local.php’),<br>        require(<strong>DIR</strong> . ‘/params.php’),<br>        require(<em>_DIR</em></em> . ‘/params-local.php’)<br>    );</p>
-<pre><code><span class="keyword">return</span> [
-    <span class="string">'id'</span> =&gt; <span class="string">'app-frontend'</span>,
-    <span class="string">'basePath'</span> =&gt; dirname(<span class="keyword">__DIR__</span>),
-    <span class="string">'bootstrap'</span> =&gt; [<span class="string">'log'</span>],
-    <span class="string">'controllerNamespace'</span> =&gt; <span class="string">'frontend\controllers'</span>,
-    <span class="string">'components'</span> =&gt; [
-        <span class="string">'urlManager'</span>=&gt;[
-            <span class="string">'enablePrettyUrl'</span>=&gt;<span class="keyword">true</span>,
-            <span class="string">'showScriptName'</span>=&gt;<span class="keyword">false</span>,
-            <span class="string">'enableStrictParsing'</span>=&gt;<span class="keyword">false</span>,
-            <span class="string">'rules'</span>=&gt;[
-                <span class="string">'&lt;controller:&lt;\w+&gt;&gt;/&lt;action:&lt;\w+&gt;&gt;'</span>=&gt;<span class="string">'&lt;controller&gt;/&lt;action&gt;'</span>
-            ]
-        ],
-        <span class="string">'user'</span> =&gt; [
-            <span class="string">'identityClass'</span> =&gt; <span class="string">'common\models\User'</span>,
-            <span class="string">'enableAutoLogin'</span> =&gt; <span class="keyword">true</span>,
-        ],
-        <span class="string">'log'</span> =&gt; [
-            <span class="string">'traceLevel'</span> =&gt; YII_DEBUG ? <span class="number">3</span> : <span class="number">0</span>,
-            <span class="string">'targets'</span> =&gt; [
-                [
-                    <span class="string">'class'</span> =&gt; <span class="string">'yii\log\FileTarget'</span>,
-                    <span class="string">'levels'</span> =&gt; [<span class="string">'error'</span>, <span class="string">'warning'</span>],
+<h2 id="关于Application"><strong> 关于Application </strong></h2><p>当入口文件创建应用时，会相应的引入相关文件，加载各种配置。下面会介绍一些相关应用的配置，及主要属性。<br>其中主要部分上文实例中的<strong>main.php</strong>所包含的相关属性。<br><code>&lt;?php
+    $params = array_merge(
+        require(__DIR__ . &#39;/../../common/config/params.php&#39;),
+        require(__DIR__ . &#39;/../../common/config/params-local.php&#39;),
+        require(__DIR__ . &#39;/params.php&#39;),
+        require(__DIR__ . &#39;/params-local.php&#39;)
+    );
+    return [
+        &#39;id&#39; =&gt; &#39;app-frontend&#39;,
+        &#39;basePath&#39; =&gt; dirname(__DIR__),
+        &#39;bootstrap&#39; =&gt; [&#39;log&#39;],
+        &#39;controllerNamespace&#39; =&gt; &#39;frontend\controllers&#39;,
+        &#39;components&#39; =&gt; [
+            &#39;urlManager&#39;=&gt;[
+                &#39;enablePrettyUrl&#39;=&gt;true,
+                &#39;showScriptName&#39;=&gt;false,
+                &#39;enableStrictParsing&#39;=&gt;false,
+                &#39;rules&#39;=&gt;[
+                    &#39;&lt;controller:&lt;\w+&gt;&gt;/&lt;action:&lt;\w+&gt;&gt;&#39;=&gt;&#39;&lt;controller&gt;/&lt;action&gt;&#39;
+                ]
+            ],
+            &#39;user&#39; =&gt; [
+                &#39;identityClass&#39; =&gt; &#39;common\models\User&#39;,
+                &#39;enableAutoLogin&#39; =&gt; true,
+            ],
+            &#39;log&#39; =&gt; [
+                &#39;traceLevel&#39; =&gt; YII_DEBUG ? 3 : 0,
+                &#39;targets&#39; =&gt; [
+                    [
+                        &#39;class&#39; =&gt; &#39;yii\log\FileTarget&#39;,
+                        &#39;levels&#39; =&gt; [&#39;error&#39;, &#39;warning&#39;],
+                    ],
                 ],
             ],
+            &#39;errorHandler&#39; =&gt; [
+                &#39;errorAction&#39; =&gt; &#39;site/error&#39;,
+            ],
         ],
-        <span class="string">'errorHandler'</span> =&gt; [
-            <span class="string">'errorAction'</span> =&gt; <span class="string">'site/error'</span>,
-        ],
-    ],
-    <span class="string">'params'</span> =&gt; <span class="variable">$params</span>,
-];
-</code></pre><p>``<br>依据上述文件，下面将分别介绍其<strong>必备属性</strong>、<strong>很重要的属性</strong>、<strong>不重要，但也很有用的属性</strong>、<strong>应用级事件</strong>、<strong>应用生命周期图</strong>。</p>
+        &#39;params&#39; =&gt; $params,
+    ];</code><br>依据上述文件，下面将分别介绍其<strong>必备属性</strong>、<strong>很重要的属性</strong>、<strong>不重要，但也很有用的属性</strong>、<strong>应用级事件</strong>、<strong>应用生命周期图</strong>。</p>
 <h3 id="必备属性">必备属性</h3><p><strong> <em>id</em> </strong></p>
 <p>如上所示，这里的id（最好由字母数字组成）具有绝对唯一性，主要用来区分不同应用。</p>
 <p><strong> <em>basePath</em> </strong></p>
