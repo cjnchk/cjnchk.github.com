@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>php7 | HK.C</title>
+  <title>小技巧-MySQL时间字段设置默认及自动更新 | HK.C</title>
   <meta name="author" content="耳东程">
+  
+  <meta name="description" content="设置默认创建时间    create_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’
+设置默认更新时间并在修改时自动更新    update_time datetime NOT NULL DEFAULT CURRENT_">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="php7"/>
+  <meta property="og:title" content="小技巧-MySQL时间字段设置默认及自动更新"/>
   <meta property="og:site_name" content="HK.C"/>
 
   
@@ -62,28 +65,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-19T10:20:07.000Z"><a href="/2015/07/19/php7/">2015-07-19</a></time>
+        <time datetime="2015-07-21T02:12:36.000Z"><a href="/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/">2015-07-21</a></time>
       
       
   
-    <h1 class="title">php7</h1>
+    <h1 class="title">小技巧-MySQL时间字段设置默认及自动更新</h1>
   
 
     </header>
     <div class="entry">
       
-        
+        <p>设置默认创建时间<br>    <code>create_time</code> datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’</p>
+<p>设置默认更新时间并在修改时自动更新<br>    <code>update_time</code> datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT ‘修改日期’</p>
+
       
     </div>
     <footer>
       
         
         
-  
-  <div class="tags">
-    <a href="/tags/php7/">php7</a>
-  </div>
-
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -124,7 +124,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://yoursite.com/2015/07/19/php7/index.html" data-num-posts="5" data-width="760" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://yoursite.com/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/index.html" data-num-posts="5" data-width="760" data-colorscheme="light"></div>
       
   
 </section>

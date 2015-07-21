@@ -63,6 +63,54 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-07-21T02:12:36.000Z"><a href="/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/">2015-07-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/">小技巧-MySQL时间字段设置默认及自动更新</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>设置默认创建时间<br>    <code>create_time</code> datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’</p>
+<p>设置默认更新时间并在修改时自动更新<br>    <code>update_time</code> datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT ‘修改日期’</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      
+        <img src="">
+      
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-19T10:43:43.000Z"><a href="/2015/07/19/Redis-批量插入/">2015-07-19</a></time>
       
       
@@ -532,73 +580,6 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-05-04T14:49:31.000Z"><a href="/2015/05/04/Hexo-for-GitHub/">2015-05-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/05/04/Hexo-for-GitHub/">Hexo for GitHub</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p><strong>这是粗体</strong></p>
-<p><strong>这还是粗体</strong></p>
-<p><em>这是斜体</em></p>
-<p><em>还是还是斜体</em></p>
-<p><em>还可以<br>跨行哦</em></p>
-<p>分割线来了</p>
-<hr>
-<blockquote>
-<p>这里是引用的一段话</p>
-</blockquote>
-<h1 id="大标题">大标题</h1><h2 id="小标题">小标题</h2><h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h6 id="六级标题">六级标题</h6><ul>
-<li>原来这就是传输中ul&gt;li标签</li>
-<li>还必须有空格<ul>
-<li>嵌套一下</li>
-</ul>
-<ul>
-<li>再来一下</li>
-</ul>
-<ul>
-<li>又嵌套了</li>
-</ul>
-</li>
-</ul>
-<p>这是<a href="http://www.google.com" target="_blank" rel="external">Baidu</a></p>
-<!-- ￼0 -->
-<pre><code>val s = <span class="string">"hello Markdown"</span>
-<span class="function"><span class="title">println</span><span class="params">( s )</span></span>
-</code></pre><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></span><br><span class="line">markdown = <span class="constant">Redcarpet</span>.new(<span class="string">"Hello World!"</span>)</span><br><span class="line">puts markdown.to_html</span><br></pre></td></tr></table></figure>
-<h2 id="下面是MarkDown语法">下面是MarkDown语法</h2><p>这是一段代码</p>
-<pre><code>{
-    <span class="string">'redis'</span>:<span class="string">'get'</span>,
-    <span class="string">'name'</span>:<span class="string">'cjnchk'</span>,
-    <span class="string">'age'</span>:<span class="string">'18'</span>
-}
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -650,6 +631,10 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
   <ul class="entry">
     
       <li>
+        <a href="/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/">小技巧-MySQL时间字段设置默认及自动更新</a>
+      </li>
+    
+      <li>
         <a href="/2015/07/19/Redis-批量插入/">Redis 批量插入</a>
       </li>
     
@@ -663,10 +648,6 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     
       <li>
         <a href="/2015/07/19/python/">python</a>
-      </li>
-    
-      <li>
-        <a href="/2015/07/19/redis/">redis</a>
       </li>
     
   </ul>
