@@ -4,7 +4,7 @@
   <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下来]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-07-21T05:48:18.000Z</updated>
+  <updated>2015-07-21T15:43:15.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,188 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[yii2入口文件：Web Applications 和 Console Applications]]></title>
+    <link href="http://yoursite.com/2015/07/21/yii2%E5%85%A5%E5%8F%A3%E6%96%87%E4%BB%B6%EF%BC%9AWeb-Applications-%E5%92%8C-Console-Applications/"/>
+    <id>http://yoursite.com/2015/07/21/yii2入口文件：Web-Applications-和-Console-Applications/</id>
+    <published>2015-07-21T13:40:35.000Z</published>
+    <updated>2015-07-21T15:43:15.000Z</updated>
+    <content type="html"><![CDATA[<p>　　yii框架中通常包含两类入口文件，一类是针对用户的web入口，一类是针对命令行的控制台入口。要注意两个入口的一致性，否则可能在命令行层面造成相关全局常量或函数的引用缺失。</p>
+<h3 id="入口文件"><strong>入口文件</strong></h3><ul>
+<li><p>通常用来定义全局常量：如debug调用，当前运行环境</p>
+<p>  defined(‘YII_DEBUG’) or define(‘YIII_DEBUG’, true);<br>  defined(‘YII_DEV’) or define(‘YII_DEV’, ‘dev’);</p>
+</li>
+<li><p>注册自动加载函数（composer autoloader）</p>
+<p>  require(<strong>DIR</strong> . ‘/../vender/autoload.php’);</p>
+</li>
+<li><p>加载Yii类文件</p>
+<p>  require(<strong>DIR</strong> . ‘/../vender/yiisoft/yii2/yii.php’);</p>
+</li>
+<li><p>加载应用配置</p>
+<p>  $config = require(<strong>DIR</strong> . ‘/../config/web.php’);</p>
+</li>
+<li><p>调用<code>yii\base\Application::run()</code>处理请求</p>
+<p>  $application = new yii\web\Application($config);<br>  $application-&gt;run();</p>
+</li>
+</ul>
+<p><strong> <em> 大致形式如下 </em> </strong> (<em> 其中部分内容会在后面深入分析 </em>)</p>
+<pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
+defined(<span class="string">'YII_DEBUG'</span>) <span class="keyword">or</span> define(<span class="string">'YII_DEBUG'</span>, <span class="keyword">true</span>);
+defined(<span class="string">'YII_ENV'</span>) <span class="keyword">or</span> define(<span class="string">'YII_ENV'</span>, <span class="string">'dev'</span>);
+
+<span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../vendor/autoload.php'</span>);
+<span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../vendor/yiisoft/yii2/Yii.php'</span>);
+<span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../common/config/bootstrap.php'</span>);
+<span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../config/bootstrap.php'</span>);
+
+<span class="variable">$config</span> = yii\helpers\ArrayHelper::merge(
+    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../common/config/main.php'</span>),
+    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../common/config/main-local.php'</span>),
+    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../config/main.php'</span>),
+    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../config/main-local.php'</span>)
+);
+
+<span class="variable">$application</span> = <span class="keyword">new</span> yii\web\Application(<span class="variable">$config</span>);
+<span class="variable">$application</span>-&gt;run();</span>
+</code></pre><h3 id="关于Application"><strong> 关于Application </strong></h3><p>当入口文件创建应用时，会相应的引入相关文件，加载各种配置。下面会介绍一些相关应用的配置，及主要属性。</p>
+<p>其中主要部分上文实例中的<strong>main.php</strong>所包含的相关属性。</p>
+<pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
+<span class="variable">$params</span> = array_merge(
+    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../common/config/params.php'</span>),
+    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/../../common/config/params-local.php'</span>),
+    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/params.php'</span>),
+    <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/params-local.php'</span>)
+);
+
+<span class="keyword">return</span> [
+    <span class="string">'id'</span> =&gt; <span class="string">'app-frontend'</span>,
+    <span class="string">'basePath'</span> =&gt; dirname(<span class="keyword">__DIR__</span>),
+    <span class="string">'bootstrap'</span> =&gt; [<span class="string">'log'</span>],
+    <span class="string">'controllerNamespace'</span> =&gt; <span class="string">'frontend\controllers'</span>,
+    <span class="string">'components'</span> =&gt; [
+        <span class="string">'urlManager'</span>=&gt;[
+            <span class="string">'enablePrettyUrl'</span>=&gt;<span class="keyword">true</span>,
+            <span class="string">'showScriptName'</span>=&gt;<span class="keyword">false</span>,
+            <span class="string">'enableStrictParsing'</span>=&gt;<span class="keyword">false</span>,
+            <span class="string">'rules'</span>=&gt;[
+                <span class="string">'&lt;controller:&lt;\w+&gt;&gt;/&lt;action:&lt;\w+&gt;&gt;'</span>=&gt;<span class="string">'&lt;controller&gt;/&lt;action&gt;'</span>
+            ]
+        ],
+        <span class="string">'user'</span> =&gt; [
+            <span class="string">'identityClass'</span> =&gt; <span class="string">'common\models\User'</span>,
+            <span class="string">'enableAutoLogin'</span> =&gt; <span class="keyword">true</span>,
+        ],
+        <span class="string">'log'</span> =&gt; [
+            <span class="string">'traceLevel'</span> =&gt; YII_DEBUG ? <span class="number">3</span> : <span class="number">0</span>,
+            <span class="string">'targets'</span> =&gt; [
+                [
+                    <span class="string">'class'</span> =&gt; <span class="string">'yii\log\FileTarget'</span>,
+                    <span class="string">'levels'</span> =&gt; [<span class="string">'error'</span>, <span class="string">'warning'</span>],
+                ],
+            ],
+        ],
+        <span class="string">'errorHandler'</span> =&gt; [
+            <span class="string">'errorAction'</span> =&gt; <span class="string">'site/error'</span>,
+        ],
+    ],
+    <span class="string">'params'</span> =&gt; <span class="variable">$params</span>,
+];</span>
+</code></pre><p>依据上述文件，下面将分别介绍其<strong>必备属性</strong>、<strong>很重要的属性</strong>、<strong>不重要，但也很有用的属性</strong>、<strong>应用级事件</strong>、<strong>应用生命周期图</strong>。</p>
+<h4 id="必备属性">必备属性</h4><p><strong> <em>id</em> </strong></p>
+<p>如上所示，这里的id（最好由字母数字组成）具有绝对唯一性，主要用来区分不同应用。</p>
+<p><strong> <em>basePath</em> </strong></p>
+<p>basePath是指当前应用所在的根目录，可以通过文件目录（/path/to/path1）或别名形式。这里着重提一下别名形式，Yii里预定义了一个别名来代指根目录<code>@app</code>，可以用它来派生其他目录，如记录程序执行日志的<code>@app/runtime</code>文件目录。</p>
+<h4 id="很重要的属性(这里只介绍几个比较有意思的)">很重要的属性(这里只介绍几个比较有意思的)</h4><p><strong> <em>aliases</em> </strong></p>
+<p>此属性允许我们通过配置文件以array的形式定义一个alias集合。避免在应用的到处调用<code>Yii::setAlias()</code>，还方便统一管理。</p>
+<pre><code>[
+    <span class="symbol">'aliases'</span> =&gt; [
+        <span class="char">'@name1'</span> =&gt; <span class="symbol">'path</span>/<span class="keyword">to</span>/path1',
+        <span class="char">'@name2'</span> =&gt; <span class="symbol">'path</span>/<span class="keyword">to</span>/path2',
+    ],
+]
+</code></pre><p><strong> <em>catchAll</em> </strong></p>
+<p>利用这个属性，我们可以在哪天需要关闭系统，但又要给用户一个页面告知用户关闭原因时，为所有请求形成一个统一的入口，指向我们的告用户界面。</p>
+<pre><code>[
+    <span class="symbol">'catchAll'</span> =&gt; [
+        <span class="symbol">'offline</span>/notice',
+        <span class="symbol">'param1'</span> =&gt; <span class="symbol">'value1'</span>,
+        <span class="symbol">'param2'</span> =&gt; <span class="symbol">'value2'</span>,
+    ],
+]
+</code></pre><p><strong> <em>components</em> </strong></p>
+<p>非常非常重要，主要用来注册一些应用组件，放在<strong>Application Components</strong>篇里详细讲解。</p>
+<p><strong> <em>controllerNamespace</em> </strong></p>
+<p>自从php5.3引入类似java，c++，python的命名空间的概念后，感觉真的是好用了很多，只是为了向下兼容，反斜杠<code>/</code>的应用可能让人觉得有些怪诞。</p>
+<p>回归主题，这个属性规定了controller类的默认命名空间，通过他亦可以解析子级目录下的controller，例如：某个controller ID为<code>admin/post</code>， 那么解析为 <code>app\controllers\admin\PostController</code>。</p>
+<p><strong> <em>modules</em> </strong></p>
+<p>这个属性指定了程序包含的模块（modules:一个位于已有MVC应用内，亦包含完整MVC结构的模块）。在<strong>modules</strong>章节详细分析。</p>
+<pre><code>[
+    <span class="string">'modules'</span> =&gt; [
+        <span class="comment">// a "booking" module specified with the module class</span>
+        <span class="string">'booking'</span> =&gt; <span class="string">'app\modules\booking\BookingModule'</span>,
+
+        <span class="comment">// a "comment" module specified with a configuration array</span>
+        <span class="string">'comment'</span> =&gt; [
+            <span class="string">'class'</span> =&gt; <span class="string">'app\modules\comment\CommentModule'</span>,
+            <span class="string">'db'</span> =&gt; <span class="string">'db'</span>,
+        ],
+    ],
+]
+</code></pre><p><strong> <em>timeZone</em> </strong></p>
+<p>当配置这个属性后，应用实际上会调用PHP的内置函数<code>date_default_timezone_set()</code>来设置时区。</p>
+<pre><code>[
+    <span class="string">'timeZone'</span> =&gt; <span class="string">'zh/Shanghai'</span>,
+]
+</code></pre><h4 id="不重要，但也很有用的属性">不重要，但也很有用的属性</h4><p><a href="http://www.yiiframework.com/doc-2.0/guide-structure-applications.html" target="_blank" rel="external">详见文档</a></p>
+<h4 id="应用级事件（全局的，顶层的，不局限于某处）">应用级事件（全局的，顶层的，不局限于某处）</h4><p>在一个请求处理周期内，应用会触发若干事件，其中会有下面四个应用级事件：</p>
+<ul>
+<li><p><strong>EVENT_BEFORE_REQUEST</strong> (应用处理请求之前触发的事件)</p>
+<p>  [</p>
+<pre><code><span class="string">'on beforeRequest'</span> =&gt; <span class="function"><span class="keyword">function</span> <span class="params">(<span class="variable">$event</span>)</span> </span>{
+    <span class="comment">// ...</span>
+},
+</code></pre><p>  ]</p>
+</li>
+<li><p><strong>EVENT_AFTER_REQUEST</strong> (应用处理请求完成后，响应发送之前，触发的事件)</p>
+<p>  [</p>
+<pre><code><span class="string">'on afterRequest'</span> =&gt; <span class="function"><span class="keyword">function</span> <span class="params">(<span class="variable">$event</span>)</span> </span>{
+    <span class="comment">// ...</span>
+},
+</code></pre><p>  ]</p>
+</li>
+<li><p><strong>EVENT_BEFORE_REQUEST</strong> (任何一个controller 的 action 运行之前，其参数<code>$event</code>是<code>yii\base\ActionEvent</code>的一个实例)</p>
+<p>  [</p>
+<pre><code><span class="string">'on beforeAction'</span> =&gt; <span class="function"><span class="keyword">function</span> <span class="params">(<span class="variable">$event</span>)</span> </span>{
+    <span class="keyword">if</span> (some condition) {
+        <span class="variable">$event</span>-&gt;isValid = <span class="keyword">false</span>;
+    } <span class="keyword">else</span> {
+    }
+},
+</code></pre><p>  ]</p>
+</li>
+<li><p><strong>EVENT_AFTER_ACTION</strong> (任何一个controller 的 action 运行完成之后，其参数<code>$event</code>是<code>yii\base\ActionEvent</code>的一个实例)</p>
+<p>  [</p>
+<pre><code><span class="string">'on afterAction'</span> =&gt; <span class="function"><span class="keyword">function</span> <span class="params">(<span class="variable">$event</span>)</span> </span>{
+    <span class="keyword">if</span> (some condition) {
+        <span class="variable">$event</span>-&gt;isValid = <span class="keyword">false</span>;
+    } <span class="keyword">else</span> {
+    }
+},
+</code></pre><p>  ]</p>
+</li>
+</ul>
+<h4 id="应用生命周期图（Application_Lifecycle）">应用生命周期图（Application Lifecycle）</h4><p>![<a href="http://www.yiiframework.com/doc-2.0/images/application-lifecycle.png" target="_blank" rel="external">http://www.yiiframework.com/doc-2.0/images/application-lifecycle.png</a> “应用生命周期图”]</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>　　yii框架中通常包含两类入口文件，一类是针对用户的web入口，一类是针对命令行的控制台入口。要注意两个入口的一致性，否则可能在命令行层面造成相关全局常量或函数的引用缺失。</p>
+<h3 id="入口文件"><strong>入口文件</strong></h3><ul>
+]]>
+    </summary>
+    
+      <category term="yii2" scheme="http://yoursite.com/tags/yii2/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[小技巧-MySQL时间字段设置默认及自动更新]]></title>
