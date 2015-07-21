@@ -4,7 +4,7 @@
   <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下来]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-07-21T02:15:13.000Z</updated>
+  <updated>2015-07-21T02:18:53.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,13 +19,13 @@
     <link href="http://yoursite.com/2015/07/21/%E5%B0%8F%E6%8A%80%E5%B7%A7-MySQL%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
     <id>http://yoursite.com/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/</id>
     <published>2015-07-21T02:12:36.000Z</published>
-    <updated>2015-07-21T02:15:13.000Z</updated>
-    <content type="html"><![CDATA[<p>设置默认创建时间<br>    <code>create_time</code> datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’</p>
-<p>设置默认更新时间并在修改时自动更新<br>    <code>update_time</code> datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT ‘修改日期’</p>
+    <updated>2015-07-21T02:18:53.000Z</updated>
+    <content type="html"><![CDATA[<p>设置默认创建时间<br>    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’</p>
+<p>设置默认更新时间并在修改时自动更新<br>     `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT ‘修改日期’</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>设置默认创建时间<br>    <code>create_time</code> datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’</p>
-<p>设置默认更新时间并在修改时自动更新<br>    <code]]>
+    <![CDATA[<p>设置默认创建时间<br>    `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’</p>
+<p>设置默认更新时间并在修改时自动更新<br>     `update_time` d]]>
     </summary>
     
   </entry>
