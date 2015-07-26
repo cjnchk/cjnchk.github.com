@@ -4,7 +4,7 @@
   <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下来]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-07-26T08:54:49.000Z</updated>
+  <updated>2015-07-26T08:56:34.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/07/26/yii2MVC%E5%BA%94%E7%94%A8/"/>
     <id>http://yoursite.com/2015/07/26/yii2MVC应用/</id>
     <published>2015-07-26T04:05:49.000Z</published>
-    <updated>2015-07-26T08:54:49.000Z</updated>
+    <updated>2015-07-26T08:56:34.000Z</updated>
     <content type="html"><![CDATA[<p>MVC是应用中常用的组织架构，对于一些基础的东西这里不做赘述，只介绍一些不是很常用的但是颇有裨益的内容，希望在以后的开发中能够加以运用。</p>
 <h2 id="Controller"><strong>Controller</strong></h2><p>controller主要负责接收请求数据并转发给model层处理，然后将返回值交给view层展现给用户。</p>
 <h3 id="独立actions(standalone_actions)"><strong>独立actions(standalone actions)</strong></h3><p>satandalone actions 是指独立于controller的单独的一个action，一般负责一个独立功能，这个功能会被多方复用，比如获取验证码的captcha，捕获错误error。此类action需继承自<code>yii\base\Action</code>或是其子类，并实现其<code>run()</code>方法。<br>例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">frontend</span>\<span class="title">controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">base</span>\<span class="title">Action</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorldAction</span> <span class="keyword">extends</span> <span class="title">Action</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'HelloWorld'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -73,6 +73,8 @@
     <![CDATA[<p>MVC是应用中常用的组织架构，对于一些基础的东西这里不做赘述，只介绍一些不是很常用的但是颇有裨益的内容，希望在以后的开发中能够加以运用。</p>
 <h2 id="Controller"><strong>Controller</strong></h2><p>controlle]]>
     </summary>
+    
+      <category term="yii2" scheme="http://yoursite.com/tags/yii2/"/>
     
   </entry>
   
