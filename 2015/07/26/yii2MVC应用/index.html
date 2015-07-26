@@ -84,8 +84,15 @@ Controllercontroller主要负责接收请求数据并转发给model层处理，�
 <p>通过如下方式访问：</p>
 <pre><code><span class="string">http:</span><span class="comment">//www.yii2test.com/site/helloWorld</span>
 </code></pre><p>返回：HelloWorld</p>
-<h3 id="最佳设计"><strong>最佳设计</strong></h3><p>在一个设计良好的应用中，controllers通长是比较简洁的，每个action仅包含少量代码。如果你的controller相当复杂，通常意味着你需要重构这部分代码，将一部分代码转移到其他类中。<br>下面是一些针对controllers的好的建议：<br>-接收请求数据<br>-调用models或其他服务组件来处理请求数据<br>-通过views展示数据<br>-不在controllers处理请求数据，应当交由model层处理<br>-避免嵌入html或其他表述型代码，这部分应当放到view层</p>
-<h2 id="Models"><strong>Models</strong></h2><h3 id="Scenarios(场景)"><strong>Scenarios(场景)</strong></h3><p>scenarios特性主要用在验证（validation）和属性批量分配（massive assignment）上，当然也可用在其他方面，根据不同的scenario采用不同的属性标签（attribute labels）。</p>
+<h3 id="最佳设计"><strong>最佳设计</strong></h3><p>在一个设计良好的应用中，controllers通长是比较简洁的，每个action仅包含少量代码。如果你的controller相当复杂，通常意味着你需要重构这部分代码，将一部分代码转移到其他类中。<br>下面是一些针对controllers的好的建议：</p>
+<ul>
+<li>接收请求数据</li>
+<li>调用models或其他服务组件来处理请求数据</li>
+<li>通过views展示数据</li>
+<li>不在controllers处理请求数据，应当交由model层处理</li>
+<li>避免嵌入html或其他表述型代码，这部分应当放到view层</li>
+</ul>
+<h2 id="Models"><strong>Models</strong></h2><h3 id="场景(Scenarios)"><strong>场景(Scenarios)</strong></h3><p>scenarios特性主要用在验证（validation）和属性批量分配（massive assignment）上，当然也可用在其他方面，根据不同的scenario采用不同的属性标签（attribute labels）。</p>
 <p>可以通过一下两种方式为model设定scenario：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. scenario is set as a property</span></span><br><span class="line"><span class="variable">$model</span> = <span class="keyword">new</span> User;</span><br><span class="line"><span class="variable">$model</span>-&gt;scenario = User::SCENARIO_LOGIN;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. scenario is set throught configuration</span></span><br><span class="line"><span class="variable">$model</span> = <span class="keyword">new</span> User([<span class="string">'scenario'</span> =&gt; User::SCENARIO_LOGIN]);</span><br></pre></td></tr></table></figure>
 <p>默认情况下，scenario是依赖于model里定义的validation rules的，如：</p>
