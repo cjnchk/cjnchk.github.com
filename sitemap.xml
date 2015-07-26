@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2015/07/26/yii2MVC%E5%BA%94%E7%94%A8/</loc>
+    <lastmod>2015-07-26T08:46:38.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2015/07/21/yii2%E5%85%A5%E5%8F%A3%E6%96%87%E4%BB%B6%EF%BC%9AWeb-Applications-%E5%92%8C-Console-Applications/</loc>
     <lastmod>2015-07-21T16:19:49.000Z</lastmod>
   </url>

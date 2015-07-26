@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>yii2MVC应用 | HK.C</title>
+  <meta name="author" content="耳东程">
+  
+  <meta name="description" content="MVC是应用中常用的组织架构，对于一些基础的东西这里不做赘述，只介绍一些不慎常用的但是颇有裨益的内容，希望在以后的开发中能够加以运用。
+Controllercontroller主要负责接收请求数据并转发给model层处理，然后将返回值交给view层展现给用户。
+独立actions(standalon">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="yii2MVC应用"/>
+  <meta property="og:site_name" content="HK.C"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HK.C" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">HK.C</a></h1>
+  <h2><a href="/">成功的道路上并不拥挤，因为根本就不会有几个人坚持下来</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      
+        <img src="">
+      
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-26T04:05:49.000Z"><a href="/2015/07/26/yii2MVC应用/">2015-07-26</a></time>
+      
+      
+  
+    <h1 class="title">yii2MVC应用</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>MVC是应用中常用的组织架构，对于一些基础的东西这里不做赘述，只介绍一些不慎常用的但是颇有裨益的内容，希望在以后的开发中能够加以运用。</p>
+<h2 id="Controller"><strong>Controller</strong></h2><p>controller主要负责接收请求数据并转发给model层处理，然后将返回值交给view层展现给用户。</p>
+<h3 id="独立actions(standalone_actions)"><strong>独立actions(standalone actions)</strong></h3><p>satandalone actions 是指独立于controller的单独的一个action，一般负责一个独立功能，这个功能会被多方复用，比如获取验证码的captcha，捕获错误error。此类action需继承自<code>yii\base\Action</code>或是其子类，并实现其<code>run()</code>方法。<br>例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">frontend</span>\<span class="title">controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">base</span>\<span class="title">Action</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorldAction</span> <span class="keyword">extends</span> <span class="title">Action</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'HelloWorld'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过如下方式在<code>siteController</code>里调用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *<span class="phpdoc"> @inheritdoc</span></span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actions</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        <span class="string">'helloWorld'</span> =&gt; [</span><br><span class="line">            <span class="string">'class'</span> =&gt; <span class="string">'frontend\controllers\HelloWorldAction'</span>,</span><br><span class="line">        ],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过如下方式访问：</p>
+<pre><code><span class="string">http:</span><span class="comment">//www.yii2test.com/site/helloWorld</span>
+</code></pre><p>返回：HelloWorld</p>
+<h3 id="最佳设计"><strong>最佳设计</strong></h3><p>在一个设计良好的应用中，controllers通长是比较简洁的，每个action仅包含少量代码。如果你的controller相当复杂，通常意味着你需要重构这部分代码，将一部分代码转移到其他类中。<br>下面是一些针对controllers的好的建议：<br>-接收请求数据<br>-调用models或其他服务组件来处理请求数据<br>-通过views展示数据<br>-不在controllers处理请求数据，应当交由model层处理<br>-避免嵌入html或其他表述型代码，这部分应当放到view层</p>
+<h2 id="Models"><strong>Models</strong></h2><h3 id="Scenarios(场景)"><strong>Scenarios(场景)</strong></h3><p>scenarios特性主要用在验证（validation）和属性批量分配（massive assignment）上，当然也可用在其他方面，根据不同的scenario采用不同的属性标签（attribute labels）。</p>
+<p>可以通过一下两种方式为model设定scenario：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. scenario is set as a property</span></span><br><span class="line"><span class="variable">$model</span> = <span class="keyword">new</span> User;</span><br><span class="line"><span class="variable">$model</span>-&gt;scenario = User::SCENARIO_LOGIN;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. scenario is set throught configuration</span></span><br><span class="line"><span class="variable">$model</span> = <span class="keyword">new</span> User([<span class="string">'scenario'</span> =&gt; User::SCENARIO_LOGIN]);</span><br></pre></td></tr></table></figure>
+<p>默认情况下，scenario是依赖于model里定义的validation rules的，如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rules</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        <span class="comment">// username, email and password are all required in "register" scenario</span></span><br><span class="line">        [[<span class="string">'username'</span>, <span class="string">'email'</span>, <span class="string">'password'</span>], <span class="string">'required'</span>, <span class="string">'on'</span> =&gt; <span class="keyword">self</span>::SCENARIO_REGISTER],</span><br><span class="line"></span><br><span class="line">        <span class="comment">// username and password are required in "login" scenario</span></span><br><span class="line">        [[<span class="string">'username'</span>, <span class="string">'password'</span>], <span class="string">'required'</span>, <span class="string">'on'</span> =&gt; <span class="keyword">self</span>::SCENARIO_LOGIN],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是，我们可通过重写<code>yii\base\Model::scenarios()</code>方法来自定义scenario：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">models</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">db</span>\<span class="title">ActiveRecord</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">ActiveRecord</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> SCENARIO_LOGIN = <span class="string">'login'</span>;</span><br><span class="line">    <span class="keyword">const</span> SCENARIO_REGISTER = <span class="string">'register'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">scenarios</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">            <span class="keyword">self</span>::SCENARIO_LOGIN =&gt; [<span class="string">'username'</span>, <span class="string">'password'</span>],</span><br><span class="line">            <span class="keyword">self</span>::SCENARIO_REGISTER =&gt; [<span class="string">'username'</span>, <span class="string">'email'</span>, <span class="string">'password'</span>],</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>默认的<code>scenarios()</code>接口，会返回所有validation rules里声明的所有scenarios，当重写<code>scenarios()</code>时，如果你想添加新的scenarios到默认的场景中，可以遵循如下形式：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">models</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">db</span>\<span class="title">ActiveRecord</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">ActiveRecord</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> SCENARIO_LOGIN = <span class="string">'login'</span>;</span><br><span class="line">    <span class="keyword">const</span> SCENARIO_REGISTER = <span class="string">'register'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">scenarios</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="variable">$scenarios</span> = <span class="keyword">parent</span>::scenarios();</span><br><span class="line">        <span class="variable">$scenarios</span>[<span class="keyword">self</span>::SCENARIO_LOGIN] = [<span class="string">'username'</span>, <span class="string">'password'</span>];</span><br><span class="line">        <span class="variable">$scenarios</span>[<span class="keyword">self</span>::SCENARIO_REGISTER] = [<span class="string">'username'</span>, <span class="string">'email'</span>, <span class="string">'password'</span>];</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$scenarios</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="验证规则（validation_rules）"><strong>验证规则（validation rules）</strong></h3><p>验证规则主要用来的字段属性验证。如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rules</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        <span class="comment">// the name, email, subject and body attributes are required</span></span><br><span class="line">        [[<span class="string">'name'</span>, <span class="string">'email'</span>, <span class="string">'subject'</span>, <span class="string">'body'</span>], <span class="string">'required'</span>],</span><br><span class="line"></span><br><span class="line">        <span class="comment">// the email attribute should be a valid email address</span></span><br><span class="line">        [<span class="string">'email'</span>, <span class="string">'email'</span>],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="批量分发（Massive_Assignment）"><strong>批量分发（Massive Assignment）</strong></h3><p>批量分发只应用于当前scenario下所列的<em>safe attributes</em>。如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// declared in scenario</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">scenarios</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        <span class="keyword">self</span>::SCENARIO_LOGIN =&gt; [<span class="string">'username'</span>, <span class="string">'password'</span>],</span><br><span class="line">        <span class="keyword">self</span>::SCENARIO_REGISTER =&gt; [<span class="string">'username'</span>, <span class="string">'email'</span>, <span class="string">'password'</span>],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// declared in rules</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rules</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        [[<span class="string">'title'</span>, <span class="string">'description'</span>], <span class="string">'safe'</span>],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>unsafe attributes</em>则无法做到批量分发，如下面加<code>！</code>的属性：</p>
+<pre><code><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">scenarios</span><span class="params">()</span>
+</span>{
+    <span class="keyword">return</span> [
+        <span class="keyword">self</span>::SCENARIO_LOGIN =&gt; [<span class="string">'username'</span>, <span class="string">'password'</span>, <span class="string">'!secret'</span>],
+    ];
+}
+</code></pre><h2 id="Views"><strong>Views</strong></h2><p>views主要通过controllers渲染并展示相关数据，这里主要讲一下<code>renderAjax()</code>如何应用，其实通过名字就可看出来，这是一个应用在ajax刷新时用的渲染方法。<br>基于此，首先要了解ajax的相关基础，我们知道，ajax是用来进行网页局部刷新的，<code>dataType</code>有四种形式<code>json,xml,script,html</code>,正是由于其可以传递html格式字符串，我们就可以个通过<code>renderAjax</code>渲染一个包含注册JS和CSS的局部文件（不包含layout），并返回给ajax请求，再通过ajax将代码插入到当前页面中，但面对大段ajax请求时，如此操作比单纯请求json数据，然后通过dom方式操作将返回数据写入的页面的方法更易维护。<br>下面通过代码讲一下实现方式（这里直通过controller和view简单叙述一下原理）：<br>-<strong>controller</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">SiteController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">        *渲染主页面</span><br><span class="line">        */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span><span class="params">()</span></span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="variable">$myName</span> = <span class="string">'张三'</span>;</span><br><span class="line">            <span class="variable">$this</span>-&gt;render(<span class="string">'index'</span>, [<span class="string">'name'</span>=&gt;<span class="variable">$myName</span>]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span><br><span class="line">        *ajax刷新</span><br><span class="line">        */</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionRenderAjax</span><span class="params">()</span></span><br><span class="line">        </span>&#123;</span><br><span class="line">            <span class="variable">$newName</span> = <span class="string">'李四'</span>;</span><br><span class="line">            <span class="variable">$this</span>-&gt;renderAjax(<span class="string">'_newName'</span>, [<span class="string">'newName'</span>=&gt;<span class="variable">$newName</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>-<strong>views(包含两部分：主页面，renderAjax渲染页面)</strong><br><strong>主页面(index)</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="string">'#newName'</span>).click(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type: <span class="string">'POST'</span>,</span><br><span class="line">            url: <span class="string">'/site/renderAjax'</span>,</span><br><span class="line">            dataType: <span class="string">'html'</span>,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> <span class="params">(html)</span> </span>&#123;</span><br><span class="line">                $(<span class="string">'#myName'</span>).html = html;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"myName"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="php"><span class="preprocessor">&lt;?</span>= <span class="variable">$name</span> <span class="preprocessor">?&gt;</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"NewName"</span> <span class="attribute">id</span>=<span class="value">"newName"</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p><strong>ajax页（_newName）</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="php"><span class="preprocessor">&lt;?</span>= <span class="variable">$newName</span> <span class="preprocessor">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样通过点击<strong>NewName</strong>按钮就可将name刷新为newName。在应对一些复杂页面的时候会比较好用。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2015/07/26/yii2MVC应用/index.html" data-num-posts="5" data-width="760" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>2</small></li>
+  
+    <li><a href="/tags/php5/">php5</a><small>1</small></li>
+  
+    <li><a href="/tags/php7/">php7</a><small>1</small></li>
+  
+    <li><a href="/tags/python/">python</a><small>1</small></li>
+  
+    <li><a href="/tags/redis/">redis</a><small>2</small></li>
+  
+    <li><a href="/tags/yii2/">yii2</a><small>2</small></li>
+  
+    <li><a href="/tags/随笔/">随笔</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/07/26/yii2MVC应用/">yii2MVC应用</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/21/yii2入口文件：Web-Applications-和-Console-Applications/">yii2入口文件：Web Applications 和 Console Applications</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/">小技巧-MySQL时间字段设置默认及自动更新</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/19/Redis-批量插入/">Redis 批量插入</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/19/php7/">php7</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/hexo/" style="font-size: 10px;">hexo</a><a href="/tags/mysql/" style="font-size: 20px;">mysql</a><a href="/tags/php5/" style="font-size: 10px;">php5</a><a href="/tags/php7/" style="font-size: 10px;">php7</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/redis/" style="font-size: 20px;">redis</a><a href="/tags/yii2/" style="font-size: 20px;">yii2</a><a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 耳东程
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
