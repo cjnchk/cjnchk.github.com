@@ -63,6 +63,100 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-07-31T16:21:55.000Z"><a href="/2015/08/01/VPN下如何使用SSH/">2015-08-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/01/VPN下如何使用SSH/">VPN下如何使用SSH</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>环境：ubunut14.04</p>
+<p>一直用greenVPN做代理，但是有一个问题，就是green把SSH给封了，导致连接VPN的时候，SSH无法连接远程服务器，那可如何是好，恐怕只有一条路了，就是让这些IP绕过VPN。</p>
+<p>绕之前我们先<code>route</code>一下，看看使用VPN前后的网络变化：<br><strong>before</strong><br>| Kernel IP routing table |<br>| Destination   |  Gateway    |     Genmask     |    Flags | Metric | Ref  |  Use | Iface   |<br>|—————————|————————-|——————————|—————-|————-|——  —|————|—————|<br>| default          |  localhost    |     0.0.0.0          | UG       |  0        | 0      |  0     | wlan0  |<br>| 192.168.1.0   |  *                 | 255.255.255.0 | U          | 9         |  0     |   0    | wlan0  |</p>
+<p>*使用VPN前，</p>
+<p><strong>after</strong><br>| Kernel IP routing table |<br>| Destination   |  Gateway    |     Genmask     |    Flags | Metric | Ref  |  Use | Iface   |<br>|—————————|————————-|——————————|—————-|————-|——  —|————|—————|<br>| default       |  <em>        |       0.0.0.0      |   U   |  0   |   0     |   0| ppp0|<br>| 10.0.6.4     |  </em>         |      255.255.255.255| UH   | 0    |  0    |    0 |ppp0|<br>| 119.81.158.84-s | 192.168.1.1   |  255.255.255.255 UGH |  0   |   0      |  0 |wlan0|<br>| 119.81.158.84-s |192.168.1.1  |   255.255.255.255 UGH |  0    |  0      |  0| wlan0|<br>| 192.168.1.0   |  *        |       255.255.255.0 |  U  |   9   |   0    |    0| wlan0|</p>
+<p>如何绕过呢，当然更改本地路由了，添加一条路由规则：</p>
+<pre><code>route <span class="keyword">add</span>
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-30T16:08:21.000Z"><a href="/2015/07/31/hello-world/">2015-07-31</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/31/hello-world/">Hello World</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      
+        <img src="">
+      
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-26T04:05:49.000Z"><a href="/2015/07/26/yii2MVC应用/">2015-07-26</a></time>
       
       
@@ -589,98 +683,6 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
 
 
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T09:56:02.000Z"><a href="/2015/07/19/yii2/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/yii2/">yii2</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T09:55:46.000Z"><a href="/2015/07/19/mysql/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/mysql/">mysql</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -732,6 +734,14 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
   <ul class="entry">
     
       <li>
+        <a href="/2015/08/01/VPN下如何使用SSH/">VPN下如何使用SSH</a>
+      </li>
+    
+      <li>
+        <a href="/2015/07/31/hello-world/">Hello World</a>
+      </li>
+    
+      <li>
         <a href="/2015/07/26/yii2MVC应用/">yii2MVC应用</a>
       </li>
     
@@ -741,14 +751,6 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     
       <li>
         <a href="/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/">小技巧-MySQL时间字段设置默认及自动更新</a>
-      </li>
-    
-      <li>
-        <a href="/2015/07/19/Redis-批量插入/">Redis 批量插入</a>
-      </li>
-    
-      <li>
-        <a href="/2015/07/19/php7/">php7</a>
       </li>
     
   </ul>

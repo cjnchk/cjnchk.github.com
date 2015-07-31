@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2015/08/01/VPN%E4%B8%8B%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8SSH/</loc>
+    <lastmod>2015-07-31T18:02:09.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2015/07/26/yii2MVC%E5%BA%94%E7%94%A8/</loc>
     <lastmod>2015-07-26T08:56:34.000Z</lastmod>
   </url>
@@ -67,7 +72,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2015/05/04/hello-world/</loc>
+    <loc>http://yoursite.com/2015/07/31/hello-world/</loc>
     <lastmod>2015-05-04T14:40:02.000Z</lastmod>
   </url>
   
