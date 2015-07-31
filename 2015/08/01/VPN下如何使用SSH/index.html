@@ -8,7 +8,9 @@
   
   <meta name="description" content="环境：ubunut14.04
 一直用greenVPN做代理，但是有一个问题，就是green把SSH给封了，导致连接VPN的时候，SSH无法连接远程服务器，那可如何是好，恐怕只有一条路了，就是让这些IP绕过VPN。
-绕之前我们先route一下，看看使用VPN前后的网络变化：before| Kernel">
+绕之前我们先route一下，看看使用VPN前后的网络变化：
+before
+| Kern">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -78,9 +80,12 @@
       
         <p>环境：ubunut14.04</p>
 <p>一直用greenVPN做代理，但是有一个问题，就是green把SSH给封了，导致连接VPN的时候，SSH无法连接远程服务器，那可如何是好，恐怕只有一条路了，就是让这些IP绕过VPN。</p>
-<p>绕之前我们先<code>route</code>一下，看看使用VPN前后的网络变化：<br><strong>before</strong><br>| Kernel IP routing table |<br>| Destination   |  Gateway    |     Genmask     |    Flags | Metric | Ref  |  Use | Iface   |<br>|—————————|————————-|——————————|—————-|————-|——  —|————|—————|<br>| default          |  localhost    |     0.0.0.0          | UG       |  0        | 0      |  0     | wlan0  |<br>| 192.168.1.0   |  *                 | 255.255.255.0 | U          | 9         |  0     |   0    | wlan0  |</p>
+<p>绕之前我们先<code>route</code>一下，看看使用VPN前后的网络变化：</p>
+<p><strong>before</strong></p>
+<p>| Kernel IP routing table |<br>| Destination   |  Gateway    |     Genmask     |    Flags | Metric | Ref  |  Use | Iface   |<br>|—————————|————————-|——————————|—————-|————-|——  —|————|—————|<br>| default          |  localhost    |     0.0.0.0          | UG       |  0        | 0      |  0     | wlan0  |<br>| 192.168.1.0   |  *                 | 255.255.255.0 | U          | 9         |  0     |   0    | wlan0  |</p>
 <p>*使用VPN前，</p>
-<p><strong>after</strong><br>| Kernel IP routing table |<br>| Destination   |  Gateway    |     Genmask     |    Flags | Metric | Ref  |  Use | Iface   |<br>|—————————|————————-|——————————|—————-|————-|——  —|————|—————|<br>| default       |  <em>        |       0.0.0.0      |   U   |  0   |   0     |   0| ppp0|<br>| 10.0.6.4     |  </em>         |      255.255.255.255| UH   | 0    |  0    |    0 |ppp0|<br>| 119.81.158.84-s | 192.168.1.1   |  255.255.255.255 UGH |  0   |   0      |  0 |wlan0|<br>| 119.81.158.84-s |192.168.1.1  |   255.255.255.255 UGH |  0    |  0      |  0| wlan0|<br>| 192.168.1.0   |  *        |       255.255.255.0 |  U  |   9   |   0    |    0| wlan0|</p>
+<p><strong>after</strong></p>
+<p>| Kernel IP routing table |<br>| Destination   |  Gateway    |     Genmask     |    Flags | Metric | Ref  |  Use | Iface   |<br>|—————————|————————-|——————————|—————-|————-|——  —|————|—————|<br>| default       |  <em>        |       0.0.0.0      |   U   |  0   |   0     |   0| ppp0|<br>| 10.0.6.4     |  </em>         |      255.255.255.255| UH   | 0    |  0    |    0 |ppp0|<br>| 119.81.158.84-s | 192.168.1.1   |  255.255.255.255 UGH |  0   |   0      |  0 |wlan0|<br>| 119.81.158.84-s |192.168.1.1  |   255.255.255.255 UGH |  0    |  0      |  0| wlan0|<br>| 192.168.1.0   |  *        |       255.255.255.0 |  U  |   9   |   0    |    0| wlan0|</p>
 <p>如何绕过呢，当然更改本地路由了，添加一条路由规则：</p>
 <pre><code>route <span class="keyword">add</span>
 </code></pre>
