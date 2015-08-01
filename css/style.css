@@ -478,6 +478,10 @@ article footer .addthis {
 article footer .addthis iframe {
   margin-top: 0;
 }
+article footer table th {
+  border-bottom: 2px solid;
+  min-width: 100px;
+}
 #comment {
   padding: 20px;
   background: #fff;
