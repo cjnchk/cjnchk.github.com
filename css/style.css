@@ -644,11 +644,6 @@ article footer .addthis iframe {
   font: 0.9em/1.6 "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
   text-shadow: 0 0 1px #fff;
 }
-.entry {
-table
-  border: 1px solid #000;
-  border-collapse: collapse;
-}
 .entry .gist {
   background: #eee;
   border: 1px solid #ddd;
@@ -689,6 +684,10 @@ table
 .entry .gist .gist-file .gist-meta a:visited {
   color: #258fb8;
 }
+.entry table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
 .entry th {
   border: 1px solid #000;
   border-collapse: collapse;
@@ -710,10 +709,6 @@ figure.highlight {
   overflow: auto;
   position: relative;
   font-size: 0.9em;
-table
-  margin-top: 1;
-  border-spacing: 1;
-  border: 0px;
 }
 figure.highlight figcaption {
   color: #999;
@@ -723,6 +718,11 @@ figure.highlight figcaption {
 figure.highlight figcaption a {
   position: absolute;
   right: 15px;
+}
+figure.highlight table {
+  margin-top: 1;
+  border-spacing: 1;
+  border: 0px;
 }
 figure.highlight th {
   border: 0px solid #000;
