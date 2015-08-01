@@ -685,15 +685,15 @@ article footer .addthis iframe {
   color: #258fb8;
 }
 .entry table {
-  border: 1px solid #000;
+  border: 1px solid #808080;
   border-collapse: collapse;
 }
 .entry th {
-  border: 1px solid #000;
+  border: 1px solid #808080;
   border-collapse: collapse;
 }
 .entry td {
-  border: 1px solid #000;
+  border: 1px solid #808080;
   border-collapse: collapse;
   padding: 1px 8px 1px;
 }
@@ -725,10 +725,10 @@ figure.highlight table {
   border: 0px;
 }
 figure.highlight th {
-  border: 0px solid #000;
+  border: 0px solid #808080;
 }
 figure.highlight td {
-  border: 0px solid #000;
+  border: 0px solid #808080;
 }
 figure.highlight pre {
   border: none;
