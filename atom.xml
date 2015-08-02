@@ -4,7 +4,7 @@
   <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下来]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-08-02T05:01:46.000Z</updated>
+  <updated>2015-08-02T05:28:04.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/08/01/VPN%E4%B8%8B%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8SSH/"/>
     <id>http://yoursite.com/2015/08/01/VPN下如何使用SSH/</id>
     <published>2015-07-31T16:21:55.000Z</published>
-    <updated>2015-08-02T05:01:46.000Z</updated>
+    <updated>2015-08-02T05:28:04.000Z</updated>
     <content type="html"><![CDATA[<p>环境：ubunut14.04</p>
 <p>一直用greenVPN做代理，但是有一个问题，就是green把SSH给封了，导致连接VPN的时候，SSH无法连接远程服务器，那可如何是好，恐怕只有一条路了，就是让这些IP绕过VPN。</p>
 <p>绕之前我们先<code>route</code>一下，看看使用VPN前后的网络变化：</p>
@@ -227,6 +227,10 @@
 <p>绕之前我们先<code>rout]]>
     </summary>
     
+      <category term="ROUTE" scheme="http://yoursite.com/tags/ROUTE/"/>
+    
+      <category term="SSH" scheme="http://yoursite.com/tags/SSH/"/>
+    
       <category term="VPN" scheme="http://yoursite.com/tags/VPN/"/>
     
       <category term="VPN" scheme="http://yoursite.com/categories/VPN/"/>
@@ -260,7 +264,7 @@
     <link href="http://yoursite.com/2015/07/26/yii2MVC%E5%BA%94%E7%94%A8/"/>
     <id>http://yoursite.com/2015/07/26/yii2MVC应用/</id>
     <published>2015-07-26T04:05:49.000Z</published>
-    <updated>2015-07-26T08:56:34.000Z</updated>
+    <updated>2015-08-02T05:27:00.000Z</updated>
     <content type="html"><![CDATA[<p>MVC是应用中常用的组织架构，对于一些基础的东西这里不做赘述，只介绍一些不是很常用的但是颇有裨益的内容，希望在以后的开发中能够加以运用。</p>
 <h2 id="Controller"><strong>Controller</strong></h2><p>controller主要负责接收请求数据并转发给model层处理，然后将返回值交给view层展现给用户。</p>
 <h3 id="独立actions(standalone_actions)"><strong>独立actions(standalone actions)</strong></h3><p>satandalone actions 是指独立于controller的单独的一个action，一般负责一个独立功能，这个功能会被多方复用，比如获取验证码的captcha，捕获错误error。此类action需继承自<code>yii\base\Action</code>或是其子类，并实现其<code>run()</code>方法。<br>例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">frontend</span>\<span class="title">controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">base</span>\<span class="title">Action</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorldAction</span> <span class="keyword">extends</span> <span class="title">Action</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'HelloWorld'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -311,11 +315,17 @@
 <p>这样通过点击<strong>NewName</strong>按钮就可将name刷新为newName。在应对一些复杂页面的时候会比较好用。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>MVC是应用中常用的组织架构，对于一些基础的东西这里不做赘述，只介绍一些不是很常用的但是颇有裨益的内容，希望在以后的开发中能够加以运用。</p>
-<h2 id="Controller"><strong>Controller</strong></h2><p>controlle]]>
+    <![CDATA[yii2中的MVC]]>
+    
     </summary>
     
+      <category term="MVC" scheme="http://yoursite.com/tags/MVC/"/>
+    
+      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+    
       <category term="yii2" scheme="http://yoursite.com/tags/yii2/"/>
+    
+      <category term="yii2" scheme="http://yoursite.com/categories/yii2/"/>
     
   </entry>
   
@@ -324,7 +334,7 @@
     <link href="http://yoursite.com/2015/07/21/yii2%E5%85%A5%E5%8F%A3%E6%96%87%E4%BB%B6%EF%BC%9AWeb-Applications-%E5%92%8C-Console-Applications/"/>
     <id>http://yoursite.com/2015/07/21/yii2入口文件：Web-Applications-和-Console-Applications/</id>
     <published>2015-07-21T13:40:35.000Z</published>
-    <updated>2015-07-21T16:19:49.000Z</updated>
+    <updated>2015-08-02T05:25:37.000Z</updated>
     <content type="html"><![CDATA[<p>　　yii框架中通常包含两类入口文件，一类是针对用户的web入口，一类是针对命令行的控制台入口。要注意两个入口的一致性，否则可能在命令行层面造成相关全局常量或函数的引用缺失。</p>
 <h2 id="入口文件"><strong>入口文件</strong></h2><ul>
 <li><p>通常用来定义全局常量：如debug调用，当前运行环境</p>
@@ -382,12 +392,13 @@
 <h3 id="应用生命周期图（Application_Lifecycle）"><strong> 应用生命周期图（Application Lifecycle） </strong></h3><p><img src="http://www.yiiframework.com/doc-2.0/images/application-lifecycle.png" alt="Application Lifecycle" title="应用生命周期图"></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>　　yii框架中通常包含两类入口文件，一类是针对用户的web入口，一类是针对命令行的控制台入口。要注意两个入口的一致性，否则可能在命令行层面造成相关全局常量或函数的引用缺失。</p>
-<h2 id="入口文件"><strong>入口文件</strong></h2><ul>
-]]>
+    <![CDATA[yii2入口文件配置]]>
+    
     </summary>
     
       <category term="yii2" scheme="http://yoursite.com/tags/yii2/"/>
+    
+      <category term="yii2" scheme="http://yoursite.com/categories/yii2/"/>
     
   </entry>
   
@@ -396,24 +407,18 @@
     <link href="http://yoursite.com/2015/07/21/%E5%B0%8F%E6%8A%80%E5%B7%A7-MySQL%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
     <id>http://yoursite.com/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/</id>
     <published>2015-07-21T02:12:36.000Z</published>
-    <updated>2015-08-02T05:06:54.000Z</updated>
+    <updated>2015-08-02T05:17:43.000Z</updated>
     <content type="html"><![CDATA[<p>设置默认创建时间</p>
 <pre><code><span class="string">`create_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>
 </code></pre><p>设置默认更新时间并在修改时自动更新</p>
 <pre><code><span class="string">`update_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP <span class="keyword">ON</span> UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">'修改日期'</span>
 </code></pre>]]></content>
     <summary type="html">
-    <![CDATA[<p>设置默认创建时间</p>
-<pre><code><span class="string">`create_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</]]>
+    <![CDATA[mysql默认时间设置]]>
+    
     </summary>
     
       <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
-    
-      <category term="timstamp" scheme="http://yoursite.com/tags/timstamp/"/>
-    
-      <category term="自动更新" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
-    
-      <category term="默认时间" scheme="http://yoursite.com/tags/%E9%BB%98%E8%AE%A4%E6%97%B6%E9%97%B4/"/>
     
       <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
     
@@ -424,7 +429,7 @@
     <link href="http://yoursite.com/2015/07/19/Redis-%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5/"/>
     <id>http://yoursite.com/2015/07/19/Redis-批量插入/</id>
     <published>2015-07-19T10:43:43.000Z</published>
-    <updated>2015-07-20T06:16:31.000Z</updated>
+    <updated>2015-08-02T05:20:58.000Z</updated>
     <content type="html"><![CDATA[<p>有时候，一些redis用例需要在短时间内插入大量已有或由用户临时生成的数据，导致百万级的键-值对需要在尽可能短的时间内创建。</p>
 <p>这就称作<em>批量插入</em>，这篇文档的目的就是探讨如何尽可能快的向redis插入数据。</p>
 <h3 id="使用protocol"><strong> <em>使用protocol</em> </strong></h3><p>因为某些原因，通过一个普通的redis客户端来实现数据的批量插入并不可取，比如：一个很小白的方式就是一个命令接一个命令的发送，这样会很慢，因为每个命令都会消耗一个回路时间（因为redis是一个client-server模式的应用，客户端和服务器可能隔了十万八千里）。这种情况也许可以通过使用管道方式（<a href="http://redis.io/topics/pipelining" target="_blank" rel="external">pipeling</a>）来解决，但是对于大量数据的批量插入，往往需要读取返回值的同时创建新命令，还要确保尽可能快的插入。</p>
@@ -505,6 +510,8 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     
       <category term="redis" scheme="http://yoursite.com/tags/redis/"/>
     
+      <category term="redis" scheme="http://yoursite.com/categories/redis/"/>
+    
   </entry>
   
   <entry>
@@ -512,13 +519,13 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/07/19/php7/"/>
     <id>http://yoursite.com/2015/07/19/php7/</id>
     <published>2015-07-19T10:20:07.000Z</published>
-    <updated>2015-07-19T10:39:31.000Z</updated>
+    <updated>2015-08-02T05:27:11.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
     </summary>
     
-      <category term="php7" scheme="http://yoursite.com/tags/php7/"/>
+      <category term="php7" scheme="http://yoursite.com/categories/php7/"/>
     
   </entry>
   
@@ -527,7 +534,7 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/07/19/%E9%9A%8F%E7%AC%94/"/>
     <id>http://yoursite.com/2015/07/19/随笔/</id>
     <published>2015-07-19T09:58:06.000Z</published>
-    <updated>2015-08-02T05:08:04.000Z</updated>
+    <updated>2015-08-02T05:19:38.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
@@ -542,13 +549,13 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/07/19/python/"/>
     <id>http://yoursite.com/2015/07/19/python/</id>
     <published>2015-07-19T09:57:28.000Z</published>
-    <updated>2015-07-19T10:03:55.000Z</updated>
+    <updated>2015-08-02T05:27:29.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
     </summary>
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
     
   </entry>
   
@@ -557,13 +564,13 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/07/19/redis/"/>
     <id>http://yoursite.com/2015/07/19/redis/</id>
     <published>2015-07-19T09:57:15.000Z</published>
-    <updated>2015-07-19T10:04:01.000Z</updated>
+    <updated>2015-08-02T05:27:39.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
     </summary>
     
-      <category term="redis" scheme="http://yoursite.com/tags/redis/"/>
+      <category term="redis" scheme="http://yoursite.com/categories/redis/"/>
     
   </entry>
   
@@ -572,13 +579,13 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/07/19/yii2/"/>
     <id>http://yoursite.com/2015/07/19/yii2/</id>
     <published>2015-07-19T09:56:02.000Z</published>
-    <updated>2015-07-19T10:04:15.000Z</updated>
+    <updated>2015-08-02T05:26:27.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
     </summary>
     
-      <category term="yii2" scheme="http://yoursite.com/tags/yii2/"/>
+      <category term="yii2" scheme="http://yoursite.com/categories/yii2/"/>
     
   </entry>
   
@@ -587,13 +594,13 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/07/19/mysql/"/>
     <id>http://yoursite.com/2015/07/19/mysql/</id>
     <published>2015-07-19T09:55:46.000Z</published>
-    <updated>2015-07-19T10:03:41.000Z</updated>
+    <updated>2015-08-02T05:23:17.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
     </summary>
     
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
     
   </entry>
   
@@ -602,13 +609,13 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/07/19/php5/"/>
     <id>http://yoursite.com/2015/07/19/php5/</id>
     <published>2015-07-19T09:55:28.000Z</published>
-    <updated>2015-07-19T10:03:47.000Z</updated>
+    <updated>2015-08-02T05:27:18.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
     </summary>
     
-      <category term="php5" scheme="http://yoursite.com/tags/php5/"/>
+      <category term="php5" scheme="http://yoursite.com/categories/php5/"/>
     
   </entry>
   
@@ -617,7 +624,7 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/05/25/%E5%BD%92%E5%8E%BB%E6%9D%A5%E5%85%AE%E8%BE%9E/"/>
     <id>http://yoursite.com/2015/05/25/归去来兮辞/</id>
     <published>2015-05-25T15:54:46.000Z</published>
-    <updated>2015-08-02T05:07:34.000Z</updated>
+    <updated>2015-08-02T05:19:18.000Z</updated>
     <content type="html"><![CDATA[<h4 id="东晋_陶渊明"><strong>东晋 陶渊明</strong></h4><p>　　归去来兮，田园将芜胡不归！既自以心为形役，奚惆怅而独悲？悟已往之不谏，知来者可追；实迷途其未远，觉今是而昨非。</p>
 <p>　　舟遥遥以轻飏，风飘飘而吹衣。问征夫以前路，恨晨光之熹微。乃瞻衡宇，载欣载奔。僮仆欢迎，稚子候门。三径就荒，松菊犹存。携幼入室，有酒盈樽。引壶觞以自酌，眄庭柯以怡颜；倚南窗以寄傲，审容膝之易安。园日涉以成趣，门虽设而常关；策扶老以流憩，时矫首而遐观。云无心以出岫，鸟倦飞而知还；景翳翳以将入，抚孤松而盘桓。</p>
 <p>　　归去来兮，请息交以绝游。世与我而相违，复驾言兮焉求！悦亲戚之情话，乐琴书以消忧。农人告余以春及，将有事于西畴。或命巾车，或棹孤舟。既窈窕以寻壑，亦崎岖而经丘。木欣欣以向荣，泉涓涓而始流。善万物之得时，感吾生之行休。</p>
@@ -628,7 +635,7 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
 <p>　　舟遥遥以轻飏，风飘飘而吹衣。问征夫以前路，恨晨光之熹]]>
     </summary>
     
-      <category term="归去来兮辞" scheme="http://yoursite.com/tags/%E5%BD%92%E5%8E%BB%E6%9D%A5%E5%85%AE%E8%BE%9E/"/>
+      <category term="辞赋" scheme="http://yoursite.com/tags/%E8%BE%9E%E8%B5%8B/"/>
     
       <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
@@ -639,7 +646,7 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/05/04/Hexo-for-GitHub/"/>
     <id>http://yoursite.com/2015/05/04/Hexo-for-GitHub/</id>
     <published>2015-05-04T14:49:31.000Z</published>
-    <updated>2015-08-02T05:09:04.000Z</updated>
+    <updated>2015-08-02T05:16:29.000Z</updated>
     <content type="html"><![CDATA[<p><strong>这是粗体</strong></p>
 <p><strong>这还是粗体</strong></p>
 <p><em>这是斜体</em></p>
@@ -681,9 +688,7 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     
     </summary>
     
-      <category term="MarkDown 语法" scheme="http://yoursite.com/tags/MarkDown-%E8%AF%AD%E6%B3%95/"/>
-    
-      <category term="MarkDown" scheme="http://yoursite.com/categories/MarkDown/"/>
+      <category term="MarkDown" scheme="http://yoursite.com/tags/MarkDown/"/>
     
   </entry>
   
