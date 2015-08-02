@@ -556,9 +556,9 @@
     <div class="entry">
       
         <p>设置默认创建时间</p>
-<pre><code><span class="string">`create_time`</span> datetime <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>
+<pre><code><span class="string">`create_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>
 </code></pre><p>设置默认更新时间并在修改时自动更新</p>
-<pre><code><span class="string">`update_time`</span> datetime <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP <span class="keyword">ON</span> UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">'修改日期'</span>
+<pre><code><span class="string">`update_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP <span class="keyword">ON</span> UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">'修改日期'</span>
 </code></pre>
       
     </div>
@@ -899,6 +899,8 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
   
     <li><a href="/categories/VPN/">VPN</a><small>1</small></li>
   
+    <li><a href="/categories/mysql/">mysql</a><small>1</small></li>
+  
   </ul>
 </div>
 
@@ -907,6 +909,8 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
 <div class="widget tag">
   <h3 class="title">标签</h3>
   <ul class="entry">
+  
+    <li><a href="/tags/VPN/">VPN</a><small>1</small></li>
   
     <li><a href="/tags/hexo/">hexo</a><small>1</small></li>
   
@@ -920,9 +924,13 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
   
     <li><a href="/tags/redis/">redis</a><small>2</small></li>
   
+    <li><a href="/tags/timstamp/">timstamp</a><small>1</small></li>
+  
     <li><a href="/tags/yii2/">yii2</a><small>3</small></li>
   
-    <li><a href="/tags/随笔/">随笔</a><small>3</small></li>
+    <li><a href="/tags/随笔/">随笔</a><small>2</small></li>
+  
+    <li><a href="/tags/默认时间，-自动更新/">默认时间， 自动更新</a><small>1</small></li>
   
   </ul>
 </div>
@@ -963,7 +971,7 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/hexo/" style="font-size: 10px;">hexo</a><a href="/tags/mysql/" style="font-size: 15px;">mysql</a><a href="/tags/php5/" style="font-size: 10px;">php5</a><a href="/tags/php7/" style="font-size: 10px;">php7</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/redis/" style="font-size: 15px;">redis</a><a href="/tags/yii2/" style="font-size: 20px;">yii2</a><a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
+    <a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/hexo/" style="font-size: 10px;">hexo</a><a href="/tags/mysql/" style="font-size: 15px;">mysql</a><a href="/tags/php5/" style="font-size: 10px;">php5</a><a href="/tags/php7/" style="font-size: 10px;">php7</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/redis/" style="font-size: 15px;">redis</a><a href="/tags/timstamp/" style="font-size: 10px;">timstamp</a><a href="/tags/yii2/" style="font-size: 20px;">yii2</a><a href="/tags/随笔/" style="font-size: 15px;">随笔</a><a href="/tags/默认时间，-自动更新/" style="font-size: 10px;">默认时间， 自动更新</a>
   </div>
 </div>
 

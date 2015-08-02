@@ -4,7 +4,7 @@
   <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下来]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-08-02T04:59:31.000Z</updated>
+  <updated>2015-08-02T05:01:46.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/08/01/VPN%E4%B8%8B%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8SSH/"/>
     <id>http://yoursite.com/2015/08/01/VPN下如何使用SSH/</id>
     <published>2015-07-31T16:21:55.000Z</published>
-    <updated>2015-08-02T04:59:31.000Z</updated>
+    <updated>2015-08-02T05:01:46.000Z</updated>
     <content type="html"><![CDATA[<p>环境：ubunut14.04</p>
 <p>一直用greenVPN做代理，但是有一个问题，就是green把SSH给封了，导致连接VPN的时候，SSH无法连接远程服务器，那可如何是好，恐怕只有一条路了，就是让这些IP绕过VPN。</p>
 <p>绕之前我们先<code>route</code>一下，看看使用VPN前后的网络变化：</p>
@@ -227,7 +227,7 @@
 <p>绕之前我们先<code>rout]]>
     </summary>
     
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="VPN" scheme="http://yoursite.com/tags/VPN/"/>
     
       <category term="VPN" scheme="http://yoursite.com/categories/VPN/"/>
     
@@ -396,18 +396,24 @@
     <link href="http://yoursite.com/2015/07/21/%E5%B0%8F%E6%8A%80%E5%B7%A7-MySQL%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
     <id>http://yoursite.com/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/</id>
     <published>2015-07-21T02:12:36.000Z</published>
-    <updated>2015-07-21T05:48:18.000Z</updated>
+    <updated>2015-08-02T05:03:25.000Z</updated>
     <content type="html"><![CDATA[<p>设置默认创建时间</p>
-<pre><code><span class="string">`create_time`</span> datetime <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>
+<pre><code><span class="string">`create_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>
 </code></pre><p>设置默认更新时间并在修改时自动更新</p>
-<pre><code><span class="string">`update_time`</span> datetime <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP <span class="keyword">ON</span> UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">'修改日期'</span>
+<pre><code><span class="string">`update_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP <span class="keyword">ON</span> UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">'修改日期'</span>
 </code></pre>]]></content>
     <summary type="html">
     <![CDATA[<p>设置默认创建时间</p>
-<pre><code><span class="string">`create_time`</span> datetime <span class="literal">NOT</span> <span class="built_in">NULL</]]>
+<pre><code><span class="string">`create_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</]]>
     </summary>
     
       <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+      <category term="timstamp" scheme="http://yoursite.com/tags/timstamp/"/>
+    
+      <category term="默认时间， 自动更新" scheme="http://yoursite.com/tags/%E9%BB%98%E8%AE%A4%E6%97%B6%E9%97%B4%EF%BC%8C-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
+    
+      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
     
   </entry>
   
