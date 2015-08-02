@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>VPN下如何使用SSH | HK.C</title>
+  <title>VPN下如何使用SSH连接（greenVPN） | HK.C</title>
   <meta name="author" content="耳东程">
   
   <meta name="description" content="环境：ubunut14.04
@@ -18,7 +18,7 @@ Des">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="VPN下如何使用SSH"/>
+  <meta property="og:title" content="VPN下如何使用SSH连接（greenVPN）"/>
   <meta property="og:site_name" content="HK.C"/>
 
   
@@ -75,7 +75,7 @@ Des">
       
       
   
-    <h1 class="title">VPN下如何使用SSH</h1>
+    <h1 class="title">VPN下如何使用SSH连接（greenVPN）</h1>
   
 
     </header>
@@ -193,8 +193,8 @@ Des">
 <p>所以，我们可以通过设置一条静态路由，来指定SSH连接IP通过指定网络：</p>
 <pre><code>sudo route add -net <span class="keyword">*</span>.<span class="keyword">*</span>.<span class="keyword">*</span>.<span class="keyword">*</span> netmask 255.255.255.255 gw 192.168.1.1
 </code></pre><p>上面的路由规则只是临时生效，重启电脑或者重启网络，甚至断开VPN都会被清除。当然你可以说通过配置永久路有的方式，来避免重启电脑造成的路由配置丢失（具体参考搜索引擎），但是我在实际操作中却发现，当断开VPN时，会刷新路由，依然会造成配置的永久路由丢失。</p>
-<p>于是，我就采取了另一种方式，就是监控VPN连接，一旦VPN连接，即触发如下代码，将代码置于<code>/etc/ppp/ip-up.d/setStaticRoute</code>内，我的文件名是 <code>setStaticRoute</code>，自己随便取：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$IFNAME</span>"</span> = <span class="string">"ppp0"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">route add -net <span class="number">182.92</span>.<span class="number">75.240</span> netmask <span class="number">255.255</span>.<span class="number">255.255</span> gw <span class="number">192.168</span>.<span class="number">1.1</span></span><br><span class="line">route add -net <span class="number">111.204</span>.<span class="number">17.86</span> netmask <span class="number">255.255</span>.<span class="number">255.255</span> gw <span class="number">192.168</span>.<span class="number">1.1</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
-<p>最后路由结果是这样：</p>
+<p>于是，我就采取了另一种方式，就是监控VPN连接，一旦VPN连接，即触发如下代码，将代码置于<code>/etc/ppp/ip-up.d/setStaticRoute</code>内，我的文件名是 <code>setStaticRoute</code>，自己随便取：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$IFNAME</span>"</span> = <span class="string">"ppp0"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">route add -net *.*.*.* netmask <span class="number">255.255</span>.<span class="number">255.255</span> gw <span class="number">192.168</span>.<span class="number">1.1</span></span><br><span class="line">route add -net *.*.*.* netmask <span class="number">255.255</span>.<span class="number">255.255</span> gw <span class="number">192.168</span>.<span class="number">1.1</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
+<p>最后路由结果是这样(<code>*.*.*.*</code>部分是SHH要连接的服务器地址)：</p>
 <table>
 <thead>
 <tr>
@@ -230,7 +230,7 @@ Des">
 <td>ppp0</td>
 </tr>
 <tr>
-<td>es.hizufang.cn</td>
+<td><em>.</em>.<em>.</em></td>
 <td>192.168.1.1</td>
 <td>255.255.255.255</td>
 <td>UGH</td>
@@ -260,7 +260,7 @@ Des">
 <td>wlan0</td>
 </tr>
 <tr>
-<td>182.92.75.240</td>
+<td><em>.</em>.<em>.</em></td>
 <td>192.168.1.1</td>
 <td>255.255.255.255</td>
 <td>UGH</td>
@@ -287,7 +287,17 @@ Des">
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/VPN/">VPN</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/tags/随笔/">随笔</a>
+  </div>
+
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -343,6 +353,15 @@ Des">
 </div>
 
   
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/VPN/">VPN</a><small>1</small></li>
+  
+  </ul>
+</div>
+
 
   
 <div class="widget tag">
@@ -363,7 +382,7 @@ Des">
   
     <li><a href="/tags/yii2/">yii2</a><small>3</small></li>
   
-    <li><a href="/tags/随笔/">随笔</a><small>2</small></li>
+    <li><a href="/tags/随笔/">随笔</a><small>3</small></li>
   
   </ul>
 </div>
@@ -377,7 +396,7 @@ Des">
   <ul class="entry">
     
       <li>
-        <a href="/2015/08/01/VPN下如何使用SSH/">VPN下如何使用SSH</a>
+        <a href="/2015/08/01/VPN下如何使用SSH/">VPN下如何使用SSH连接（greenVPN）</a>
       </li>
     
       <li>
@@ -404,7 +423,7 @@ Des">
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/hexo/" style="font-size: 10px;">hexo</a><a href="/tags/mysql/" style="font-size: 15px;">mysql</a><a href="/tags/php5/" style="font-size: 10px;">php5</a><a href="/tags/php7/" style="font-size: 10px;">php7</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/redis/" style="font-size: 15px;">redis</a><a href="/tags/yii2/" style="font-size: 20px;">yii2</a><a href="/tags/随笔/" style="font-size: 15px;">随笔</a>
+    <a href="/tags/hexo/" style="font-size: 10px;">hexo</a><a href="/tags/mysql/" style="font-size: 15px;">mysql</a><a href="/tags/php5/" style="font-size: 10px;">php5</a><a href="/tags/php7/" style="font-size: 10px;">php7</a><a href="/tags/python/" style="font-size: 10px;">python</a><a href="/tags/redis/" style="font-size: 15px;">redis</a><a href="/tags/yii2/" style="font-size: 20px;">yii2</a><a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
   </div>
 </div>
 
