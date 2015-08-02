@@ -396,7 +396,7 @@
     <link href="http://yoursite.com/2015/07/21/%E5%B0%8F%E6%8A%80%E5%B7%A7-MySQL%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%8F%8A%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
     <id>http://yoursite.com/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/</id>
     <published>2015-07-21T02:12:36.000Z</published>
-    <updated>2015-08-02T05:03:25.000Z</updated>
+    <updated>2015-08-02T05:06:54.000Z</updated>
     <content type="html"><![CDATA[<p>设置默认创建时间</p>
 <pre><code><span class="string">`create_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>
 </code></pre><p>设置默认更新时间并在修改时自动更新</p>
@@ -411,7 +411,9 @@
     
       <category term="timstamp" scheme="http://yoursite.com/tags/timstamp/"/>
     
-      <category term="默认时间， 自动更新" scheme="http://yoursite.com/tags/%E9%BB%98%E8%AE%A4%E6%97%B6%E9%97%B4%EF%BC%8C-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
+      <category term="自动更新" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0/"/>
+    
+      <category term="默认时间" scheme="http://yoursite.com/tags/%E9%BB%98%E8%AE%A4%E6%97%B6%E9%97%B4/"/>
     
       <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
     
@@ -525,13 +527,13 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/07/19/%E9%9A%8F%E7%AC%94/"/>
     <id>http://yoursite.com/2015/07/19/随笔/</id>
     <published>2015-07-19T09:58:06.000Z</published>
-    <updated>2015-07-19T10:03:23.000Z</updated>
+    <updated>2015-08-02T05:08:04.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
     </summary>
     
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -615,7 +617,7 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/05/25/%E5%BD%92%E5%8E%BB%E6%9D%A5%E5%85%AE%E8%BE%9E/"/>
     <id>http://yoursite.com/2015/05/25/归去来兮辞/</id>
     <published>2015-05-25T15:54:46.000Z</published>
-    <updated>2015-07-19T10:03:32.000Z</updated>
+    <updated>2015-08-02T05:07:34.000Z</updated>
     <content type="html"><![CDATA[<h4 id="东晋_陶渊明"><strong>东晋 陶渊明</strong></h4><p>　　归去来兮，田园将芜胡不归！既自以心为形役，奚惆怅而独悲？悟已往之不谏，知来者可追；实迷途其未远，觉今是而昨非。</p>
 <p>　　舟遥遥以轻飏，风飘飘而吹衣。问征夫以前路，恨晨光之熹微。乃瞻衡宇，载欣载奔。僮仆欢迎，稚子候门。三径就荒，松菊犹存。携幼入室，有酒盈樽。引壶觞以自酌，眄庭柯以怡颜；倚南窗以寄傲，审容膝之易安。园日涉以成趣，门虽设而常关；策扶老以流憩，时矫首而遐观。云无心以出岫，鸟倦飞而知还；景翳翳以将入，抚孤松而盘桓。</p>
 <p>　　归去来兮，请息交以绝游。世与我而相违，复驾言兮焉求！悦亲戚之情话，乐琴书以消忧。农人告余以春及，将有事于西畴。或命巾车，或棹孤舟。既窈窕以寻壑，亦崎岖而经丘。木欣欣以向荣，泉涓涓而始流。善万物之得时，感吾生之行休。</p>
@@ -626,7 +628,9 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
 <p>　　舟遥遥以轻飏，风飘飘而吹衣。问征夫以前路，恨晨光之熹]]>
     </summary>
     
-      <category term="随笔" scheme="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="归去来兮辞" scheme="http://yoursite.com/tags/%E5%BD%92%E5%8E%BB%E6%9D%A5%E5%85%AE%E8%BE%9E/"/>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -635,7 +639,7 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/05/04/Hexo-for-GitHub/"/>
     <id>http://yoursite.com/2015/05/04/Hexo-for-GitHub/</id>
     <published>2015-05-04T14:49:31.000Z</published>
-    <updated>2015-07-17T17:01:24.000Z</updated>
+    <updated>2015-08-02T05:09:04.000Z</updated>
     <content type="html"><![CDATA[<p><strong>这是粗体</strong></p>
 <p><strong>这还是粗体</strong></p>
 <p><em>这是斜体</em></p>
@@ -677,7 +681,9 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     
     </summary>
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="MarkDown 语法" scheme="http://yoursite.com/tags/MarkDown-%E8%AF%AD%E6%B3%95/"/>
+    
+      <category term="MarkDown" scheme="http://yoursite.com/categories/MarkDown/"/>
     
   </entry>
   
