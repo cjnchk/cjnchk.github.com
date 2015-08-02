@@ -4,7 +4,7 @@
   <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下来]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-08-02T05:37:04.000Z</updated>
+  <updated>2015-08-02T05:42:23.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/08/01/VPN%E4%B8%8B%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8SSH/"/>
     <id>http://yoursite.com/2015/08/01/VPN下如何使用SSH/</id>
     <published>2015-07-31T16:21:55.000Z</published>
-    <updated>2015-08-02T05:37:04.000Z</updated>
+    <updated>2015-08-02T05:42:23.000Z</updated>
     <content type="html"><![CDATA[<p>环境：ubunut14.04</p>
 <p>一直用greenVPN做代理，但是有一个问题，就是green把SSH给封了，导致连接VPN的时候，SSH无法连接远程服务器，那可如何是好，恐怕只有一条路了，就是让这些IP绕过VPN。</p>
 <p>绕之前我们先<code>route</code>一下，看看使用VPN前后的网络变化：</p>
@@ -129,9 +129,12 @@
 </tbody>
 </table>
 <p><em>连接VPN后默认路由均由ppp0(VPN网络)接管，但是指定规则静态路由不走VPN，且路由规则里静态路由优先级高于默认路由</em></p>
-<p>所以，我们可以通过设置一条静态路由，来指定SSH连接IP通过指定网络：</p>
-<pre><code>sudo route add -net <span class="keyword">*</span>.<span class="keyword">*</span>.<span class="keyword">*</span>.<span class="keyword">*</span> netmask 255.255.255.255 gw 192.168.1.1
-</code></pre><p>上面的路由规则只是临时生效，重启电脑或者重启网络，甚至断开VPN都会被清除。当然你可以说通过配置永久路有的方式，来避免重启电脑造成的路由配置丢失（具体参考搜索引擎），但是我在实际操作中却发现，当断开VPN时，会刷新路由，依然会造成配置的永久路由丢失。</p>
+<p>所以，我们可以通过设置一条静态路由，来使SSH连接的IP通过指定网络转发：</p>
+<pre><code>sudo route add -net <span class="keyword">*</span>.<span class="keyword">*</span>.<span class="keyword">*</span>.<span class="keyword">*</span> netmask 255.255.255.255 gw 192.168.1.1 dev wlan0
+</code></pre><ul>
+<li><em><code>dev wlan 0</code>可以不写，程序会自动匹配正在是用的非VPN网路</em></li>
+</ul>
+<p>上面的路由规则只是临时生效，重启电脑或者重启网络，甚至断开VPN都会被清除。当然你可以说通过配置永久路有的方式，来避免重启电脑造成的路由配置丢失（具体参考搜索引擎），但是我在实际操作中却发现，当断开VPN时，会刷新路由，依然会造成配置的永久路由丢失。</p>
 <p>于是，我就采取了另一种方式，就是监控VPN连接，一旦VPN连接，即触发如下代码，将代码置于<code>/etc/ppp/ip-up.d/setStaticRoute</code>内，我的文件名是 <code>setStaticRoute</code>，自己随便取：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$IFNAME</span>"</span> = <span class="string">"ppp0"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">route add -net *.*.*.* netmask <span class="number">255.255</span>.<span class="number">255.255</span> gw <span class="number">192.168</span>.<span class="number">1.1</span></span><br><span class="line">route add -net *.*.*.* netmask <span class="number">255.255</span>.<span class="number">255.255</span> gw <span class="number">192.168</span>.<span class="number">1.1</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
 <p>最后路由结果是这样(<code>*.*.*.*</code>部分是SSH要连接的服务器地址)：</p>
 <table>
