@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[HK.C]]></title>
-  <subtitle><![CDATA[成功的道路上并不拥挤，因为根本就不会有几个人坚持下来]]></subtitle>
+  <subtitle><![CDATA[折腾是生命的自然属性]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-08-02T05:46:56.000Z</updated>
+  <updated>2015-08-02T08:39:17.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://yoursite.com/2015/08/01/VPN%E4%B8%8B%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8SSH/"/>
     <id>http://yoursite.com/2015/08/01/VPN下如何使用SSH/</id>
     <published>2015-07-31T16:21:55.000Z</published>
-    <updated>2015-08-02T05:46:56.000Z</updated>
+    <updated>2015-08-02T08:39:17.000Z</updated>
     <content type="html"><![CDATA[<p>环境：ubunut14.04</p>
 <p>一直用greenVPN做代理，但是有一个问题，就是green把SSH给封了，导致连接VPN的时候，SSH无法连接远程服务器，那可如何是好，恐怕只有一条路了，就是让这些IP绕过VPN。</p>
 <p>绕之前我们先<code>route</code>一下，看看使用VPN前后的网络变化：</p>
