@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2015/08/04/curl/</loc>
+    <lastmod>2015-08-04T15:11:25.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2015/07/19/php5/</loc>
+    <lastmod>2015-08-04T15:08:43.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2015/08/01/VPN%E4%B8%8B%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8SSH/</loc>
     <lastmod>2015-08-02T08:39:17.000Z</lastmod>
   </url>
@@ -29,11 +39,6 @@
   <url>
     <loc>http://yoursite.com/2015/07/19/python/</loc>
     <lastmod>2015-08-02T05:27:29.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2015/07/19/php5/</loc>
-    <lastmod>2015-08-02T05:27:18.000Z</lastmod>
   </url>
   
   <url>
