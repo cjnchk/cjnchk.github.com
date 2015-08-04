@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[PHP中CURL方法curl_setopt()函数的参数(mark待查...)]]></title>
-    <link href="http://yoursite.com/2015/08/04/PHP%E4%B8%ADCURL%E6%96%B9%E6%B3%95curl_setopt()%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0/"/>
-    <id>http://yoursite.com/2015/08/04/PHP中CURL方法curl_setopt()函数的参数/</id>
+    <link href="http://yoursite.com/2015/08/04/PHP%E4%B8%ADCURL%E6%96%B9%E6%B3%95curl_setopt()%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0(mark%E5%BE%85%E6%9F%A5...)/"/>
+    <id>http://yoursite.com/2015/08/04/PHP中CURL方法curl_setopt()函数的参数(mark待查...)/</id>
     <published>2015-08-04T15:07:45.000Z</published>
     <updated>2015-08-04T15:18:14.000Z</updated>
     <content type="html"><![CDATA[<p>PHP CURL curl_setopt 参数</p>
