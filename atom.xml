@@ -4,7 +4,7 @@
   <subtitle><![CDATA[折腾是生命的自然属性]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-08-04T15:18:14.000Z</updated>
+  <updated>2015-08-04T15:46:28.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,21 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[OpenSSL]]></title>
+    <link href="http://yoursite.com/2015/08/04/OpenSSL/"/>
+    <id>http://yoursite.com/2015/08/04/OpenSSL/</id>
+    <published>2015-08-04T15:44:16.000Z</published>
+    <updated>2015-08-04T15:46:28.000Z</updated>
+    <content type="html"><![CDATA[<p>OpenSSL可以对签名进行生成和验证，对数据进行加密和解密</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>OpenSSL可以对签名进行生成和验证，对数据进行加密和解密</p>
+]]>
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[PHP中CURL方法curl_setopt()函数的参数(mark待查...)]]></title>
