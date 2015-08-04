@@ -4,7 +4,7 @@
   <subtitle><![CDATA[折腾是生命的自然属性]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-08-04T15:11:25.000Z</updated>
+  <updated>2015-08-04T15:17:10.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[PHP中CURL方法curl_setopt()函数的参数(mark待查)]]></title>
-    <link href="http://yoursite.com/2015/08/04/curl/"/>
-    <id>http://yoursite.com/2015/08/04/curl/</id>
+    <title><![CDATA[PHP中CURL方法curl_setopt()函数的参数(mark待查...)]]></title>
+    <link href="http://yoursite.com/2015/08/04/PHP%E4%B8%ADCURL%E6%96%B9%E6%B3%95curl_setopt()%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0/"/>
+    <id>http://yoursite.com/2015/08/04/PHP中CURL方法curl_setopt()函数的参数/</id>
     <published>2015-08-04T15:07:45.000Z</published>
-    <updated>2015-08-04T15:11:25.000Z</updated>
+    <updated>2015-08-04T15:17:10.000Z</updated>
     <content type="html"><![CDATA[<p>PHP CURL curl_setopt 参数</p>
 <p>bool curl_setopt (int ch, string option, mixed value)<br>curl_setopt()函数将为一个CURL会话设置选项。option参数是你想要的设置，value是这个选项给定的值。</p>
 <p>下列选项的值将被作为长整形使用(在option参数中指定)：<br>?    CURLOPT_INFILESIZE : 当你上传一个文件到远程站点，这个选项告诉PHP你上传文件的大小。<br>?    CURLOPT_VERBOSE : 如果你想CURL报告每一件意外的事情，设置这个选项为一个非零值。<br>?    CURLOPT_HEADER : 如果你想把一个头包含在输出中，设置这个选项为一个非零值。<br>?    CURLOPT_NOPROGRESS: 如果你不会PHP为CURL传输显示一个进程条，设置这个选项为一个非零值。注意：PHP自动设置这个选项为非零值，你应该仅仅为了调试的目的来改变这个选项。<br>?    CURLOPT_NOBODY : 如果你不想在输出中包含body部分，设置这个选项为一个非零值。<br>?    CURLOPT_FAILONERROR : 如果你想让PHP在发生错误(HTTP代码返回大于等于300)时，不显示，设置这个选项为一人非零值。默认行为是返回一个正常页，忽略代码。<br>?    CURLOPT_UPLOAD: 如果你想让PHP为上传做准备，设置这个选项为一个非零值。<br>?    CURLOPT_POST : 如果你想PHP去做一个正规的HTTP POST，设置这个选项为一个非零值。这个POST是普通的 application/x-www-from-urlencoded 类型，多数被HTML表单使用。<br>?    CURLOPT_FTPLISTONLY : 设置这个选项为非零值，PHP将列出FTP的目录名列表。<br>?    CURLOPT_FTPAPPEND : 设置这个选项为一个非零值，PHP将应用远程文件代替覆盖它。<br>?    CURLOPT_NETRC : 设置这个选项为一个非零值，PHP将在你的 ~./netrc 文件中查找你要建立连接的远程站点的用户名及密码。<br>?    CURLOPT_FOLLOWLOCATION : 设置这个选项为一个非零值(象 “Location: “)的头，服务器会把它当做HTTP头的一部分发送(注意这是递归的，PHP将发送形如 “Location: “的头)。<br>?    CURLOPT_PUT : 设置这个选项为一个非零值去用HTTP上传一个文件。要上传这个文件必须设置CURLOPT_INFILE和CURLOPT_INFILESIZE选项.<br>?    CURLOPT_MUTE : 设置这个选项为一个非零值，PHP对于CURL函数将完全沉默。<br>?    CURLOPT_TIMEOUT : 设置一个长整形数，作为最大延续多少秒。<br>?    CURLOPT_LOW_SPEED_LIMIT: 设置一个长整形数，控制传送多少字节。<br>?    CURLOPT_LOW_SPEED_TIME : 设置一个长整形数，控制多少秒传送CURLOPT_LOW_SPEED_LIMIT规定的字节数。<br>?    CURLOPT_RESUME_FROM : 传递一个包含字节偏移地址的长整形参数，(你想转移到的开始表单)。<br>?    CURLOPT_SSLVERSION: 传递一个包含SSL版本的长参数。默认PHP将被它自己努力的确定，在更多的安全中你必须手工设置。<br>?    CURLOPT_TIMECONDITION : 传递一个长参数，指定怎么处理CURLOPT_TIMEVALUE参数。你可以设置这个参数为TIMECOND_IFMODSINCE 或 TIMECOND_ISUNMODSINCE。这仅用于HTTP。<br>?    CURLOPT_TIMEVALUE : 传递一个从1970-1-1开始到现在的秒数。这个时间将被CURLOPT_TIMEVALUE选项作为指定值使用，或被默认TIMECOND_IFMODSINCE使用。</p>
@@ -50,12 +50,16 @@
 <p>curl_multi_init()函数的作用是初始化一个curl批处理句柄资源。<br>curl_multi_add_handle()函数的作用是向curl批处理会话中添加单独的curl句柄资源。curl_multi_add_handle()函数有两个参数，第一个参数表示一个curl批处理句柄资源，第二个参数表示一个单独的curl句柄资源。<br>curl_multi_exec()函数的作用是解析一个curl批处理句柄，curl_multi_exec()函数有两个参数，第一个参数表示一个批处理句柄资源，第二个参数是一个引用值的参数，表示剩余需要处理的单个的curl句柄资源数量。<br>curl_multi_remove_handle()函数表示移除curl批处理句柄资源中的某个句柄资源，curl_multi_remove_handle()函数有两个参数，第一个参数表示一个curl批处理句柄资源，第二个参数表示一个单独的curl句柄资源。<br>curl_multi_close()函数的作用是关闭一个批处理句柄资源。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ch1</span> = curl_init();</span><br><span class="line"><span class="variable">$ch2</span> = curl_init();</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch1</span>, CURLOPT_URL, <span class="string">"http://www.baidu.com/"</span>);</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch1</span>, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch2</span>, CURLOPT_URL, <span class="string">"http://www.google.com/"</span>);</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch2</span>, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line"><span class="variable">$mh</span> = curl_multi_init();</span><br><span class="line">curl_multi_add_handle(<span class="variable">$mh</span>,<span class="variable">$ch1</span>);</span><br><span class="line">curl_multi_add_handle(<span class="variable">$mh</span>,<span class="variable">$ch2</span>);</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">curl_multi_<span class="built_in">exec</span>(<span class="variable">$mh</span>,<span class="variable">$flag</span>);</span><br><span class="line">&#125; <span class="keyword">while</span> (<span class="variable">$flag</span> &gt; <span class="number">0</span>);</span><br><span class="line">curl_multi_remove_handle(<span class="variable">$mh</span>,<span class="variable">$ch1</span>);</span><br><span class="line">curl_multi_remove_handle(<span class="variable">$mh</span>,<span class="variable">$ch2</span>);</span><br><span class="line">curl_multi_close(<span class="variable">$mh</span>);</span><br></pre></td></tr></table></figure>
 <p>curl_multi_getcontent()函数的作用是在设置了CURLOPT_RETURNTRANSFER的情况下，返回获取的输出的文本流。<br>curl_multi_info_read()函数的作用是获取当前解析的curl的相关传输信息。<br>curl_multi_select()<br>Get all the sockets associated with the cURL extension, which can then be “selected”</p>
-<p><a href="http://www.cnblogs.com/txw1958/archive/2013/01/19/2867584.html" target="_blank" rel="external">from</a></p>
+<p>from<a href="http://www.cnblogs.com/txw1958/archive/2013/01/19/2867584.html" target="_blank" rel="external"></a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>PHP CURL curl_setopt 参数</p>
-<p>bool curl_setopt (int ch, string option, mixed value)<br>curl_setopt()函数将为一个CURL会话设置选项。option参数是你想要的设置，val]]>
+    <![CDATA[curl宝典]]>
+    
     </summary>
+    
+      <category term="curl" scheme="http://yoursite.com/tags/curl/"/>
+    
+      <category term="php" scheme="http://yoursite.com/tags/php/"/>
     
       <category term="php" scheme="http://yoursite.com/categories/php/"/>
     

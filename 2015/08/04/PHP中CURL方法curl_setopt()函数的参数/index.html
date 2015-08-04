@@ -3,17 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PHP中CURL方法curl_setopt()函数的参数(mark待查) | HK.C</title>
+  <title>PHP中CURL方法curl_setopt()函数的参数(mark待查...) | HK.C</title>
   <meta name="author" content="耳东程">
   
-  <meta name="description" content="PHP CURL curl_setopt 参数
-bool curl_setopt (int ch, string option, mixed value)curl_setopt()函数将为一个CURL会话设置选项。option参数是你想要的设置，value是这个选项给定的值。
-下列选项的值将被作为长">
+  <meta name="description" content="curl宝典">
   
-  
+  <meta name="keywords" content="curl,php">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="PHP中CURL方法curl_setopt()函数的参数(mark待查)"/>
+  <meta property="og:title" content="PHP中CURL方法curl_setopt()函数的参数(mark待查...)"/>
   <meta property="og:site_name" content="HK.C"/>
 
   
@@ -66,11 +64,11 @@ bool curl_setopt (int ch, string option, mixed value)curl_setopt()函数将为�
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-08-04T15:07:45.000Z"><a href="/2015/08/04/curl/">2015-08-04</a></time>
+        <time datetime="2015-08-04T15:07:45.000Z"><a href="/2015/08/04/PHP中CURL方法curl_setopt()函数的参数/">2015-08-04</a></time>
       
       
   
-    <h1 class="title">PHP中CURL方法curl_setopt()函数的参数(mark待查)</h1>
+    <h1 class="title">PHP中CURL方法curl_setopt()函数的参数(mark待查...)</h1>
   
 
     </header>
@@ -106,7 +104,7 @@ bool curl_setopt (int ch, string option, mixed value)curl_setopt()函数将为�
 <p>curl_multi_init()函数的作用是初始化一个curl批处理句柄资源。<br>curl_multi_add_handle()函数的作用是向curl批处理会话中添加单独的curl句柄资源。curl_multi_add_handle()函数有两个参数，第一个参数表示一个curl批处理句柄资源，第二个参数表示一个单独的curl句柄资源。<br>curl_multi_exec()函数的作用是解析一个curl批处理句柄，curl_multi_exec()函数有两个参数，第一个参数表示一个批处理句柄资源，第二个参数是一个引用值的参数，表示剩余需要处理的单个的curl句柄资源数量。<br>curl_multi_remove_handle()函数表示移除curl批处理句柄资源中的某个句柄资源，curl_multi_remove_handle()函数有两个参数，第一个参数表示一个curl批处理句柄资源，第二个参数表示一个单独的curl句柄资源。<br>curl_multi_close()函数的作用是关闭一个批处理句柄资源。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ch1</span> = curl_init();</span><br><span class="line"><span class="variable">$ch2</span> = curl_init();</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch1</span>, CURLOPT_URL, <span class="string">"http://www.baidu.com/"</span>);</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch1</span>, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch2</span>, CURLOPT_URL, <span class="string">"http://www.google.com/"</span>);</span><br><span class="line">curl_<span class="built_in">setopt</span>(<span class="variable">$ch2</span>, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line"><span class="variable">$mh</span> = curl_multi_init();</span><br><span class="line">curl_multi_add_handle(<span class="variable">$mh</span>,<span class="variable">$ch1</span>);</span><br><span class="line">curl_multi_add_handle(<span class="variable">$mh</span>,<span class="variable">$ch2</span>);</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">curl_multi_<span class="built_in">exec</span>(<span class="variable">$mh</span>,<span class="variable">$flag</span>);</span><br><span class="line">&#125; <span class="keyword">while</span> (<span class="variable">$flag</span> &gt; <span class="number">0</span>);</span><br><span class="line">curl_multi_remove_handle(<span class="variable">$mh</span>,<span class="variable">$ch1</span>);</span><br><span class="line">curl_multi_remove_handle(<span class="variable">$mh</span>,<span class="variable">$ch2</span>);</span><br><span class="line">curl_multi_close(<span class="variable">$mh</span>);</span><br></pre></td></tr></table></figure>
 <p>curl_multi_getcontent()函数的作用是在设置了CURLOPT_RETURNTRANSFER的情况下，返回获取的输出的文本流。<br>curl_multi_info_read()函数的作用是获取当前解析的curl的相关传输信息。<br>curl_multi_select()<br>Get all the sockets associated with the cURL extension, which can then be “selected”</p>
-<p><a href="http://www.cnblogs.com/txw1958/archive/2013/01/19/2867584.html" target="_blank" rel="external">from</a></p>
+<p>from<a href="http://www.cnblogs.com/txw1958/archive/2013/01/19/2867584.html" target="_blank" rel="external"></a></p>
 
       
     </div>
@@ -119,6 +117,11 @@ bool curl_setopt (int ch, string option, mixed value)curl_setopt()函数将为�
   </div>
 
         
+  
+  <div class="tags">
+    <a href="/tags/curl/">curl</a>, <a href="/tags/php/">php</a>
+  </div>
+
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -159,7 +162,7 @@ bool curl_setopt (int ch, string option, mixed value)curl_setopt()函数将为�
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://yoursite.com/2015/08/04/curl/index.html" data-num-posts="5" data-width="760" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://yoursite.com/2015/08/04/PHP中CURL方法curl_setopt()函数的参数/index.html" data-num-posts="5" data-width="760" data-colorscheme="light"></div>
       
   
 </section>
@@ -206,7 +209,7 @@ bool curl_setopt (int ch, string option, mixed value)curl_setopt()函数将为�
   <ul class="entry">
     
       <li>
-        <a href="/2015/08/04/curl/">PHP中CURL方法curl_setopt()函数的参数(mark待查)</a>
+        <a href="/2015/08/04/PHP中CURL方法curl_setopt()函数的参数/">PHP中CURL方法curl_setopt()函数的参数(mark待查...)</a>
       </li>
     
       <li>
@@ -233,7 +236,7 @@ bool curl_setopt (int ch, string option, mixed value)curl_setopt()函数将为�
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/MVC/" style="font-size: 10px;">MVC</a><a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a><a href="/tags/ROUTE/" style="font-size: 10px;">ROUTE</a><a href="/tags/SSH/" style="font-size: 10px;">SSH</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/mysql/" style="font-size: 10px;">mysql</a><a href="/tags/php/" style="font-size: 10px;">php</a><a href="/tags/redis/" style="font-size: 10px;">redis</a><a href="/tags/yii2/" style="font-size: 20px;">yii2</a><a href="/tags/辞赋/" style="font-size: 10px;">辞赋</a>
+    <a href="/tags/MVC/" style="font-size: 10px;">MVC</a><a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a><a href="/tags/ROUTE/" style="font-size: 10px;">ROUTE</a><a href="/tags/SSH/" style="font-size: 10px;">SSH</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/curl/" style="font-size: 10px;">curl</a><a href="/tags/mysql/" style="font-size: 10px;">mysql</a><a href="/tags/php/" style="font-size: 20px;">php</a><a href="/tags/redis/" style="font-size: 10px;">redis</a><a href="/tags/yii2/" style="font-size: 20px;">yii2</a><a href="/tags/辞赋/" style="font-size: 10px;">辞赋</a>
   </div>
 </div>
 
