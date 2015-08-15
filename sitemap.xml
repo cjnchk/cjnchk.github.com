@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2015/08/15/PHP%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%EF%BC%88%E6%8E%92%E5%BA%8F%E3%80%81%E6%8E%92%E5%BA%8F%E6%8F%92%E5%85%A5%E3%80%81xml%E8%BD%ACarray%EF%BC%89/</loc>
+    <lastmod>2015-08-15T08:41:38.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2015/08/04/OpenSSL/</loc>
     <lastmod>2015-08-04T15:46:28.000Z</lastmod>
   </url>
@@ -82,7 +87,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2015/07/31/hello-world/</loc>
+    <loc>http://yoursite.com/2015/08/05/hello-world/</loc>
     <lastmod>2015-05-04T14:40:02.000Z</lastmod>
   </url>
   
