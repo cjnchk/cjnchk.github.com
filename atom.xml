@@ -4,7 +4,7 @@
   <subtitle><![CDATA[折腾是生命的自然属性]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-08-15T08:59:08.000Z</updated>
+  <updated>2015-08-15T09:08:17.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[小技巧-PHP获取上周的起始时间和结束时间]]></title>
+    <link href="http://yoursite.com/2015/08/15/PHP%E8%8E%B7%E5%8F%96%E4%B8%8A%E5%91%A8%E7%9A%84%E8%B5%B7%E5%A7%8B%E6%97%B6%E9%97%B4%E5%92%8C%E7%BB%93%E6%9D%9F%E6%97%B6%E9%97%B4/"/>
+    <id>http://yoursite.com/2015/08/15/PHP获取上周的起始时间和结束时间/</id>
+    <published>2015-08-15T09:06:36.000Z</published>
+    <updated>2015-08-15T09:08:17.000Z</updated>
+    <content type="html"><![CDATA[<p>就像下面这样<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$lastWeekStart</span> = mktime(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="keyword">date</span>(<span class="string">'m'</span>),<span class="keyword">date</span>(<span class="string">'d'</span>)-<span class="keyword">date</span>(<span class="string">'w'</span>)+<span class="number">1</span>-<span class="number">7</span>,<span class="keyword">date</span>(<span class="string">'Y'</span>));</span><br><span class="line"><span class="variable">$lastWeekEnd</span> = mktime(<span class="number">23</span>,<span class="number">59</span>,<span class="number">59</span>,<span class="keyword">date</span>(<span class="string">'m'</span>),<span class="keyword">date</span>(<span class="string">'d'</span>)-<span class="keyword">date</span>(<span class="string">'w'</span>)+<span class="number">7</span>-<span class="number">7</span>,<span class="keyword">date</span>(<span class="string">'Y'</span>));</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>就像下面这样<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br>]]>
+    </summary>
+    
+      <category term="php" scheme="http://yoursite.com/categories/php/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[PHP常用算法（排序、排序插入、xml转array）]]></title>
