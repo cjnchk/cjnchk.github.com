@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>yii2独立模块：Modules | HK.C</title>
+  <meta name="author" content="耳东程">
+  
+  <meta name="description" content="Modules是一个由模型层、视图层、控制器层构成的自包含模块，另外还支持组件（components），终端用户可以直接访问modules的控制器。所以，modules会被视为一个小型的应用，模块却别于正常应用的是，其不能独立存在，而必须隶属于应用的一部分。
+创建Modules模块通常位于根目录，在">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="yii2独立模块：Modules"/>
+  <meta property="og:site_name" content="HK.C"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HK.C" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">HK.C</a></h1>
+  <h2><a href="/">折腾是生命的自然属性</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      
+        <img src="">
+      
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-26T13:57:16.000Z"><a href="/2015/08/26/yii2独立模块：Modules/">2015-08-26</a></time>
+      
+      
+  
+    <h1 class="title">yii2独立模块：Modules</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Modules是一个由模型层、视图层、控制器层构成的自包含模块，另外还支持组件（components），终端用户可以直接访问modules的控制器。所以，modules会被视为一个小型的应用，模块却别于正常应用的是，其不能独立存在，而必须隶属于应用的一部分。</p>
+<h2 id="创建Modules"><strong>创建Modules</strong></h2><p>模块通常位于根目录，在这个目录内包含有子目录，如<code>controllers</code>、<code>models</code>、<code>views</code>，形如一个正常的应用，下面是一个模块的例子：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">forum/</span><br><span class="line">    Module.php                   the module class <span class="keyword">file</span></span><br><span class="line">    controllers/                 containing controller class <span class="keyword">files</span></span><br><span class="line">        DefaultController.php    the default controller class <span class="keyword">file</span></span><br><span class="line">    models/                      containing model class <span class="keyword">files</span></span><br><span class="line">    views/                       containing controller <span class="keyword">view</span> <span class="built_in">and</span> layout <span class="keyword">files</span></span><br><span class="line">        layouts/                 containing layout <span class="keyword">view</span> <span class="keyword">files</span></span><br><span class="line">        default/                 containing <span class="keyword">view</span> <span class="keyword">files</span> <span class="keyword">for</span> DefaultController</span><br><span class="line">            <span class="built_in">index</span>.php            the <span class="built_in">index</span> <span class="keyword">view</span> <span class="keyword">file</span></span><br></pre></td></tr></table></figure>
+<h2 id="模块类（Modules_Classes）"><strong>模块类（Modules Classes）</strong></h2><p>每个模块都应该有一个继承自<code>yii\base\Module</code>的唯一module类。该类应当为模块根目录下，并且能够自动加载。当模块被访问时，其对应的模块类会生成一个实例。如同应用实例，模块实例为模块内的代码提供共享配置及组件。</p>
+<p>下面是一个module类的例子：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">modules</span>\<span class="title">forum</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Module</span> <span class="keyword">extends</span> \<span class="title">yii</span>\<span class="title">base</span>\<span class="title">Module</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">parent</span>::init();</span><br><span class="line"></span><br><span class="line">        <span class="variable">$this</span>-&gt;params[<span class="string">'foo'</span>] = <span class="string">'bar'</span>;</span><br><span class="line">        <span class="comment">// ...  other initialization code ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果<code>init()</code>方法内包很多初始化代码，就可以将他们保存在一个单独的配置文件里，然后在<code>init()</code>里加载这个配置文件。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">parent</span>::init();</span><br><span class="line">    <span class="comment">// initialize the module with the configuration loaded from config.php</span></span><br><span class="line">    \Yii::configure(<span class="variable">$this</span>, <span class="keyword">require</span>(<span class="keyword">__DIR__</span> . <span class="string">'/config.php'</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置文件<code>config.php</code>通常包含以下内容，类似于应用的配置：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        <span class="string">'components'</span> =&gt; [</span><br><span class="line">            <span class="comment">// list of component configurations</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">'params'</span> =&gt; [</span><br><span class="line">            <span class="comment">// list of parameters</span></span><br><span class="line">        ],</span><br><span class="line">    ];</span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用模块"><strong>使用模块</strong></h2><p>为了能够使用模块，需要将其列入应用配置modules属性内，下面是一个在应用配置文件中使用<code>form</code>模块的例子：<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    <span class="string">'modules'</span> =&gt; [</span><br><span class="line">        <span class="string">'forum'</span> =&gt; [</span><br><span class="line">            <span class="string">'class'</span> =&gt; <span class="string">'app\modules\forum\Module'</span>,</span><br><span class="line">            <span class="comment">// ... other configurations for the module ...</span></span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p><code>modules</code>属性是一个包含模块配置的数组，数组的key是标识模块的唯一ID，值是用来的创建模块的配置。</p>
+<h2 id="路由（routes）"><strong>路由（routes）</strong></h2><p>如同访问应用中的控制器一样，路由通常用来定位模块总的控制器。模块中的控制路由由<code>module ID</code>、<code>controller ID</code>、<code>action ID</code>依次连接组成，例如：<code>form/post/index</code>。如果只写<code>module ID</code>，那么将会访问名为<code>default</code>的默认控制器。</p>
+<h2 id="模块访问"><strong>模块访问</strong></h2><p>在一个模块内，我们可能经常需要获得模块的实例，以便访问其ID、参数、组件等。<br>获取实例可以通过以下方式：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$module</span> = <span class="constant">MyModuleClass:</span><span class="symbol">:getInstance</span>();</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> get the child <span class="keyword">module</span> whose <span class="constant">ID </span>is <span class="string">"forum"</span></span><br><span class="line"><span class="variable">$module</span> = \<span class="constant">Yii:</span><span class="symbol">:</span><span class="variable">$app</span>-&gt;getModule(<span class="string">'forum'</span>);</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> get the <span class="keyword">module</span> to which the currently requested controller belongs</span><br><span class="line"><span class="variable">$module</span> = \<span class="constant">Yii:</span><span class="symbol">:</span><span class="variable">$app</span>-&gt;controller-&gt;<span class="keyword">module</span>;</span><br></pre></td></tr></table></figure></p>
+<p>一旦获得实例，便可访问其参数：<br><code>$maxPostCount = $module-&gt;params[&#39;maxPostCount&#39;];</code></p>
+<h2 id="模块启动引导（Bootstrapping_Modules）"><strong>模块启动引导（Bootstrapping Modules）</strong></h2><p>有些模块我们可能需要针对任何请求，例如debug模块。因此，应当将模块ID放入应用的<code>bootstrap</code>属性。</p>
+<p>下面的配置能够保证debug模块总会启动：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    'bootstrap' =&gt; [</span><br><span class="line">        'debug',</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    'modules' =&gt; [</span><br><span class="line">        'debug' =&gt; 'yii\debug\Module',</span><br><span class="line">    ],</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h2 id="模块嵌套"><strong>模块嵌套</strong></h2><p>模块嵌套时，需要在其父模块作声明，例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">modules</span>\<span class="title">forum</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Module</span> <span class="keyword">extends</span> \<span class="title">yii</span>\<span class="title">base</span>\<span class="title">Module</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">parent</span>::init();</span><br><span class="line"></span><br><span class="line">        <span class="variable">$this</span>-&gt;modules = [</span><br><span class="line">            <span class="string">'admin'</span> =&gt; [</span><br><span class="line">                <span class="comment">// you should consider using a shorter namespace here!</span></span><br><span class="line">                <span class="string">'class'</span> =&gt; <span class="string">'app\modules\forum\modules\admin\Module'</span>,</span><br><span class="line">            ],</span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>访问嵌套模块的路由规则应当是，包含其所有的祖先模块ID，外加controller ID、action ID，例如：<br><code>forum/admin/dashboard/index</code></p>
+<h2 id="最佳实践"><strong>最佳实践</strong></h2><ul>
+<li><p>模块通常被用于一些复杂的应用中，其某些特性可以独立成组，构成一个模块，每个模块可以有指定的开发人员或team开发和维护。</p>
+</li>
+<li><p>模块也可用作代码复用，尤其针对可以独立成块的系统特性，如用户管理、评论管理等。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/yii2/">yii2</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/独立模块/">独立模块</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2015/08/26/yii2独立模块：Modules/index.html" data-num-posts="5" data-width="760" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/VPN/">VPN</a><small>1</small></li>
+  
+    <li><a href="/categories/mysql/">mysql</a><small>2</small></li>
+  
+    <li><a href="/categories/php/">php</a><small>4</small></li>
+  
+    <li><a href="/categories/php7/">php7</a><small>1</small></li>
+  
+    <li><a href="/categories/python/">python</a><small>1</small></li>
+  
+    <li><a href="/categories/redis/">redis</a><small>2</small></li>
+  
+    <li><a href="/categories/yii2/">yii2</a><small>4</small></li>
+  
+    <li><a href="/categories/随笔/">随笔</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/08/26/yii2独立模块：Modules/">yii2独立模块：Modules</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/15/PHP获取上周的起始时间和结束时间/">小技巧-PHP获取上周的起始时间和结束时间</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/15/PHP常用算法（排序、排序插入、xml转array）/">PHP常用算法（排序、排序插入、xml转array）</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/04/OpenSSL/">OpenSSL</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/04/PHP中CURL方法curl_setopt()函数的参数(mark待查...)/">PHP中CURL方法curl_setopt()函数的参数(mark待查...)</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/MVC/" style="font-size: 10px;">MVC</a><a href="/tags/MarkDown/" style="font-size: 10px;">MarkDown</a><a href="/tags/ROUTE/" style="font-size: 10px;">ROUTE</a><a href="/tags/SSH/" style="font-size: 10px;">SSH</a><a href="/tags/VPN/" style="font-size: 10px;">VPN</a><a href="/tags/curl/" style="font-size: 10px;">curl</a><a href="/tags/mysql/" style="font-size: 10px;">mysql</a><a href="/tags/php/" style="font-size: 20px;">php</a><a href="/tags/redis/" style="font-size: 10px;">redis</a><a href="/tags/xml转array/" style="font-size: 10px;">xml转array</a><a href="/tags/yii2/" style="font-size: 15px;">yii2</a><a href="/tags/排序/" style="font-size: 10px;">排序</a><a href="/tags/排序插入/" style="font-size: 10px;">排序插入</a><a href="/tags/独立模块/" style="font-size: 10px;">独立模块</a><a href="/tags/辞赋/" style="font-size: 10px;">辞赋</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 耳东程
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
