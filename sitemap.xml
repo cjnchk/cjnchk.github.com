@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2015/08/27/yii2%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%9AFilters/</loc>
+    <lastmod>2015-08-27T15:45:05.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2015/08/26/yii2%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%9D%97%EF%BC%9AModules/</loc>
     <lastmod>2015-08-26T15:47:24.000Z</lastmod>
   </url>

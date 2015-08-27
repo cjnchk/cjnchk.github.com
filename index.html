@@ -63,6 +63,83 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-08-27T12:59:58.000Z"><a href="/2015/08/27/yii2过滤器：Filters/">2015-08-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/27/yii2过滤器：Filters/">yii2过滤器：Filters</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>过滤器是一种运行于控制器动作之前或之后的对象。例如，运行于动作之前，用于确认终端用户是否有权访问的访问控制过滤器；运行与动作之后，用于压缩输出的内容压缩过滤器。</p>
+<p>过滤器通常包含前置过滤器和后置过滤器。</p>
+<h2 id="过滤器的使用"><strong>过滤器的使用</strong></h2><p>过滤器实际是一类特殊的行为（behaviors）。因此，过滤器的使用跟行为的使用是一样的。我们可以通过重写控制器类中<code>behaviors()</code>方法来声明过滤器，如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">behaviors</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        [</span><br><span class="line">            <span class="string">'class'</span> =&gt; <span class="string">'yii\filters\HttpCache'</span>,</span><br><span class="line">            <span class="string">'only'</span> =&gt; [<span class="string">'index'</span>, <span class="string">'view'</span>],</span><br><span class="line">            <span class="string">'lastModified'</span> =&gt; <span class="function"><span class="keyword">function</span> <span class="params">(<span class="variable">$action</span>, <span class="variable">$params</span>)</span> </span>&#123;</span><br><span class="line">                <span class="variable">$q</span> = <span class="keyword">new</span> \yii\db\Query();</span><br><span class="line">                <span class="keyword">return</span> <span class="variable">$q</span>-&gt;from(<span class="string">'user'</span>)-&gt;max(<span class="string">'updated_at'</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">        ],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>默认情况下，在控制器类中声明的过滤器会应用到当前控制器下的所有动作。But，我们可以通过配置<code>only</code>属性来指定当前过滤器应用的动作，如上例。我们也可以通过配置<code>except</code>属性来指出哪些动作不应用于当前过滤器。</p>
+<p>除在控制器内以外，我们还可以在应用或模块内声明过滤器。如此以来过滤器将应用于当前应用或模块的所有控制器动作，除非在<code>only</code>或<code>except</code>中配置。</p>
+<h6 id="注意：在模块或应用中声明过滤器，配置only或except属性时应当使用路由而非动作ID。因为单纯的一个动作ID无明确当前应用或模块范围内的动作。"><em>注意：在模块或应用中声明过滤器，配置<code>only</code>或<code>except</code>属性时应当使用路由而非动作ID。因为单纯的一个动作ID无明确当前应用或模块范围内的动作。</em></h6><p>当多个过滤器共同作用于一个动作时，他们会按照如下规则顺序执行：</p>
+<ul>
+<li>前置过滤器<ul>
+<li>应用中的过滤器，按照<code>behaviors()</code>中列表正序依次作用</li>
+<li>模块中的过滤器，按照<code>behaviors()</code>中列表正序依次作用</li>
+<li>控制器中的过滤器，按照<code>behaviors()</code>中列表正序依次作用</li>
+<li>如果这些过滤其中的任何一个取消了动作的执行，那么之后的所有过滤器都将不再起作用，包括前置和后置过滤器。</li>
+</ul>
+</li>
+<li>如果动作通过了所有过滤，那么动作将会执行。</li>
+<li>后置过滤器<ul>
+<li>控制器中的过滤器，按照<code>behaviors()</code>中列表逆序依次作用</li>
+<li>模块中的过滤器，按照<code>behaviors()</code>中列表逆序依次作用</li>
+<li>应用中的过滤器，按照<code>behaviors()</code>中列表逆序依次作用</li>
+</ul>
+</li>
+</ul>
+<h2 id="创建过滤器"><strong>创建过滤器</strong></h2><p>为了创建动作过滤器，需要继承<code>yii\base\ActionFilter</code>并且重写<code>beforeAction()</code>和<code>afterAction()</code>两个方法，这两个方法分别作用于动作执行前和执行后。<code>beforeAction()</code>的返回值决定了动作是否执行，如果其返回<code>false</code>，动作将不会执行，后之过滤器也不会起作用。</p>
+<p>下面是一个记录动作执行时间的过滤器：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">app</span>\<span class="title">components</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">base</span>\<span class="title">ActionFilter</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ActionTimeFilter</span> <span class="keyword">extends</span> <span class="title">ActionFilter</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$_startTime</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">beforeAction</span><span class="params">(<span class="variable">$action</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="variable">$this</span>-&gt;_startTime = microtime(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">parent</span>::beforeAction(<span class="variable">$action</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">afterAction</span><span class="params">(<span class="variable">$action</span>, <span class="variable">$result</span>)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="variable">$time</span> = microtime(<span class="keyword">true</span>) - <span class="variable">$this</span>-&gt;_startTime;</span><br><span class="line">        Yii::trace(<span class="string">"Action '&#123;$action-&gt;uniqueId&#125;' spent $time second."</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">parent</span>::afterAction(<span class="variable">$action</span>, <span class="variable">$result</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="核心过滤器"><strong> 核心过滤器 </strong></h2><p>Yii提供了许多常见的过滤器，主要构建在<code>yii\filters</code>命名空间下，下面将做一些简单介绍。</p>
+<h3 id="访问控制"><strong> 访问控制 </strong></h3><p>访问控制过滤器提供基于规则的简单访问控制功能。通常，动作执行前，访问控制器会检查规则，并且找到一个能够匹配当前内容的变量，次规则将将决定动作是否执行，如果没有规则匹配到，访问将被阻止。</p>
+<p>下面的例子展示了授权用户访问<code>create</code>、<code>update</code>动作，非授权用户则无访问。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">filters</span>\<span class="title">AccessControl</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">behaviors</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        <span class="string">'access'</span> =&gt; [</span><br><span class="line">            <span class="string">'class'</span> =&gt; AccessControl::className(),</span><br><span class="line">            <span class="string">'only'</span> =&gt; [<span class="string">'create'</span>, <span class="string">'update'</span>],</span><br><span class="line">            <span class="string">'rules'</span> =&gt; [</span><br><span class="line">                <span class="comment">// allow authenticated users</span></span><br><span class="line">                [</span><br><span class="line">                    <span class="string">'allow'</span> =&gt; <span class="keyword">true</span>,</span><br><span class="line">                    <span class="string">'roles'</span> =&gt; [<span class="string">'@'</span>],</span><br><span class="line">                ],</span><br><span class="line">                <span class="comment">// everything else is denied by default</span></span><br><span class="line">            ],</span><br><span class="line">        ],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>关于访问控制的跟多细节参考<a href="http://www.yiiframework.com/doc-2.0/guide-security-authorization.html" target="_blank" rel="external">身份验证</a>章节。</p>
+<h4 id="身份验证过滤器"><strong>身份验证过滤器</strong></h4><p>身份验证过滤器使用多种方式来验证用户，例如<code>HTTP Basic Auth</code>，<code>OAuth 2</code>。所有这些过滤类都位于<code>yii\filters\auth</code>命名空间下。<br>下面的例子介绍了如何通过<code>yii\filters\auth\HttpBasicAuth</code>利用用户token通过HTTP Basic Auth方法验证用户是否有操作权限。 要注意的是，为了是上面的方法正常工作，需要在用户验证类（<a href="http://www.yiiframework.com/doc-2.0/yii-web-user.html#$identityClass-detail" target="_blank" rel="external">user identity class </a>）里实现<code>findIdentityByAccessToken()</code>方法。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">filters</span>\<span class="title">auth</span>\<span class="title">HttpBasicAuth</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">behaviors</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        <span class="string">'basicAuth'</span> =&gt; [</span><br><span class="line">            <span class="string">'class'</span> =&gt; HttpBasicAuth::className(),</span><br><span class="line">        ],</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>身份验证过滤器通常用作实现RESTful(<a href="http://www.ruanyifeng.com/blog/2011/09/restful" target="_blank" rel="external">表现层状态转化</a>) APIs，具体参考RESTful <a href="http://www.yiiframework.com/doc-2.0/guide-rest-authentication.html" target="_blank" rel="external">Authentication</a>章节。</p>
+<p>未完待续……..</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      
+        <img src="">
+      
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-08-26T13:57:16.000Z"><a href="/2015/08/26/yii2独立模块：Modules/">2015-08-26</a></time>
       
       
@@ -570,58 +647,6 @@
 
 
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T10:43:43.000Z"><a href="/2015/07/19/Redis-批量插入/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/Redis-批量插入/">Redis 批量插入</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>有时候，一些redis用例需要在短时间内插入大量已有或由用户临时生成的数据，导致百万级的键-值对需要在尽可能短的时间内创建。</p>
-<p>这就称作<em>批量插入</em>，这篇文档的目的就是探讨如何尽可能快的向redis插入数据。</p>
-<h3 id="使用protocol"><strong> <em>使用protocol</em> </strong></h3><p>因为某些原因，通过一个普通的redis客户端来实现数据的批量插入并不可取，比如：一个很小白的方式就是一个命令接一个命令的发送，这样会很慢，因为每个命令都会消耗一个回路时间（因为redis是一个client-server模式的应用，客户端和服务器可能隔了十万八千里）。这种情况也许可以通过使用管道方式（<a href="http://redis.io/topics/pipelining">pipeling</a>）来解决，但是对于大量数据的批量插入，往往需要读取返回值的同时创建新命令，还要确保尽可能快的插入。<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/07/19/Redis-批量插入/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -671,6 +696,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2015/08/27/yii2过滤器：Filters/">yii2过滤器：Filters</a>
+      </li>
+    
+      <li>
         <a href="/2015/08/26/yii2独立模块：Modules/">yii2独立模块：Modules</a>
       </li>
     
@@ -684,10 +713,6 @@
     
       <li>
         <a href="/2015/08/04/OpenSSL/">OpenSSL</a>
-      </li>
-    
-      <li>
-        <a href="/2015/08/04/PHP中CURL方法curl_setopt()函数的参数(mark待查...)/">PHP中CURL方法curl_setopt()函数的参数(mark待查...)</a>
       </li>
     
   </ul>
