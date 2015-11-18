@@ -818,6 +818,21 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
   </entry>
   
   <entry>
+    <title><![CDATA[rust]]></title>
+    <link href="http://yoursite.com/2015/07/19/rust/"/>
+    <id>http://yoursite.com/2015/07/19/rust/</id>
+    <published>2015-07-19T09:55:46.000Z</published>
+    <updated>2015-11-18T15:05:18.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="rust" scheme="http://yoursite.com/categories/rust/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[php]]></title>
     <link href="http://yoursite.com/2015/07/19/php5/"/>
     <id>http://yoursite.com/2015/07/19/php5/</id>
@@ -837,72 +852,20 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     <link href="http://yoursite.com/2015/05/25/%E5%BD%92%E5%8E%BB%E6%9D%A5%E5%85%AE%E8%BE%9E/"/>
     <id>http://yoursite.com/2015/05/25/归去来兮辞/</id>
     <published>2015-05-25T15:54:46.000Z</published>
-    <updated>2015-08-15T08:59:03.000Z</updated>
+    <updated>2015-11-18T15:05:19.000Z</updated>
     <content type="html"><![CDATA[<h4 id="东晋_陶渊明"><strong>东晋 陶渊明</strong></h4><p>　　归去来兮，田园将芜胡不归！既自以心为形役，奚惆怅而独悲？悟已往之不谏，知来者可追；实迷途其未远，觉今是而昨非。</p>
 <p>　　舟遥遥以轻飏，风飘飘而吹衣。问征夫以前路，恨晨光之熹微。乃瞻衡宇，载欣载奔。僮仆欢迎，稚子候门。三径就荒，松菊犹存。携幼入室，有酒盈樽。引壶觞以自酌，眄庭柯以怡颜；倚南窗以寄傲，审容膝之易安。园日涉以成趣，门虽设而常关；策扶老以流憩，时矫首而遐观。云无心以出岫，鸟倦飞而知还；景翳翳以将入，抚孤松而盘桓。</p>
 <p>　　归去来兮，请息交以绝游。世与我而相违，复驾言兮焉求！悦亲戚之情话，乐琴书以消忧。农人告余以春及，将有事于西畴。或命巾车，或棹孤舟。既窈窕以寻壑，亦崎岖而经丘。木欣欣以向荣，泉涓涓而始流。善万物之得时，感吾生之行休。</p>
 <p>　　已矣乎！寓形宇内复几时，曷不委心任去留，胡为乎遑遑欲何之？富贵非吾愿，帝乡不可期。怀良辰以孤往，或植杖而耘耔。登东皋以舒啸，临清流而赋诗。聊乘化以归尽，乐夫天命复奚疑！</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[舟遥遥以轻飏，风飘飘而吹衣]]>
+    <![CDATA[舟遥遥以轻飏, 风飘飘而吹衣]]>
     
     </summary>
     
       <category term="辞赋" scheme="http://yoursite.com/tags/%E8%BE%9E%E8%B5%8B/"/>
     
       <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hexo for GitHub]]></title>
-    <link href="http://yoursite.com/2015/05/04/Hexo-for-GitHub/"/>
-    <id>http://yoursite.com/2015/05/04/Hexo-for-GitHub/</id>
-    <published>2015-05-04T14:49:31.000Z</published>
-    <updated>2015-08-15T08:59:05.000Z</updated>
-    <content type="html"><![CDATA[<p><strong>这是粗体</strong></p>
-<p><strong>这还是粗体</strong></p>
-<p><em>这是斜体</em></p>
-<p><em>还是还是斜体</em></p>
-<p><em>还可以<br>跨行哦</em></p>
-<p>分割线来了</p>
-<hr>
-<a id="more"></a>
-<blockquote>
-<p>这里是引用的一段话</p>
-</blockquote>
-<h1 id="大标题">大标题</h1><h2 id="小标题">小标题</h2><h1 id="一级标题">一级标题</h1><h2 id="二级标题">二级标题</h2><h6 id="六级标题">六级标题</h6><ul>
-<li>原来这就是传输中ul&gt;li标签</li>
-<li>还必须有空格<ul>
-<li>嵌套一下</li>
-</ul>
-<ul>
-<li>再来一下</li>
-</ul>
-<ul>
-<li>又嵌套了</li>
-</ul>
-</li>
-</ul>
-<p>这是<a href="http://www.google.com" target="_blank" rel="external">Baidu</a></p>
-<!-- ￼0 -->
-<pre><code>val s = <span class="string">"hello Markdown"</span>
-<span class="function"><span class="title">println</span><span class="params">( s )</span></span>
-</code></pre><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'redcarpet'</span></span><br><span class="line">markdown = <span class="constant">Redcarpet</span>.new(<span class="string">"Hello World!"</span>)</span><br><span class="line">puts markdown.to_html</span><br></pre></td></tr></table></figure>
-<h2 id="下面是MarkDown语法">下面是MarkDown语法</h2><p>这是一段代码</p>
-<pre><code>{
-    <span class="string">'redis'</span>:<span class="string">'get'</span>,
-    <span class="string">'name'</span>:<span class="string">'cjnchk'</span>,
-    <span class="string">'age'</span>:<span class="string">'18'</span>
-}
-</code></pre>]]></content>
-    <summary type="html">
-    <![CDATA[Hexo安装及GitHub部署]]>
-    
-    </summary>
-    
-      <category term="MarkDown" scheme="http://yoursite.com/tags/MarkDown/"/>
     
   </entry>
   
