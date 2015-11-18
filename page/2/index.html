@@ -63,6 +63,56 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-07-21T02:12:36.000Z"><a href="/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/">2015-07-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/21/小技巧-MySQL时间字段设置默认及自动更新/">小技巧-MySQL时间字段设置默认及自动更新</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>设置默认创建时间</p>
+<pre><code><span class="string">`create_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP COMMENT <span class="string">'创建时间'</span>
+</code></pre><p>设置默认更新时间并在修改时自动更新</p>
+<pre><code><span class="string">`update_time`</span> timstamp <span class="literal">NOT</span> <span class="built_in">NULL</span> DEFAULT CURRENT_TIMESTAMP <span class="keyword">ON</span> UPDATE CURRENT_TIMESTAMP COMMENT <span class="string">'修改日期'</span>
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      
+        <img src="">
+      
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-19T10:43:43.000Z"><a href="/2015/07/19/Redis-批量插入/">2015-07-19</a></time>
       
       
@@ -463,56 +513,6 @@
 
 
 
-  <article class="photo">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="http://s7.sinaimg.cn/orignal/0049hDICgy6FTtu8Zuu96">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-05-25T15:54:46.000Z"><a href="/2015/05/25/归去来兮辞/">2015-05-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/05/25/归去来兮辞/">归去来兮辞</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h4 id="东晋_陶渊明"><strong>东晋 陶渊明</strong></h4><p>　　归去来兮，田园将芜胡不归！既自以心为形役，奚惆怅而独悲？悟已往之不谏，知来者可追；实迷途其未远，觉今是而昨非。</p>
-<p>　　舟遥遥以轻飏，风飘飘而吹衣。问征夫以前路，恨晨光之熹微。乃瞻衡宇，载欣载奔。僮仆欢迎，稚子候门。三径就荒，松菊犹存。携幼入室，有酒盈樽。引壶觞以自酌，眄庭柯以怡颜；倚南窗以寄傲，审容膝之易安。园日涉以成趣，门虽设而常关；策扶老以流憩，时矫首而遐观。云无心以出岫，鸟倦飞而知还；景翳翳以将入，抚孤松而盘桓。</p>
-<p>　　归去来兮，请息交以绝游。世与我而相违，复驾言兮焉求！悦亲戚之情话，乐琴书以消忧。农人告余以春及，将有事于西畴。或命巾车，或棹孤舟。既窈窕以寻壑，亦崎岖而经丘。木欣欣以向荣，泉涓涓而始流。善万物之得时，感吾生之行休。</p>
-<p>　　已矣乎！寓形宇内复几时，曷不委心任去留，胡为乎遑遑欲何之？富贵非吾愿，帝乡不可期。怀良辰以孤往，或植杖而耘耔。登东皋以舒啸，临清流而赋诗。聊乘化以归尽，乐夫天命复奚疑！</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -550,6 +550,8 @@
   
     <li><a href="/categories/rust/">rust</a><small>1</small></li>
   
+    <li><a href="/categories/yaf/">yaf</a><small>1</small></li>
+  
     <li><a href="/categories/yii2/">yii2</a><small>4</small></li>
   
     <li><a href="/categories/随笔/">随笔</a><small>2</small></li>
@@ -566,6 +568,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2015/11/18/yaf/">yaf</a>
+      </li>
+    
+      <li>
         <a href="/2015/08/27/yii2过滤器：Filters/">yii2过滤器：Filters</a>
       </li>
     
@@ -579,10 +585,6 @@
     
       <li>
         <a href="/2015/08/15/PHP常用算法（排序、排序插入、xml转array）/">PHP常用算法（排序、排序插入、xml转array）</a>
-      </li>
-    
-      <li>
-        <a href="/2015/08/04/OpenSSL/">OpenSSL</a>
       </li>
     
   </ul>

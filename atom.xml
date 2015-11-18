@@ -4,7 +4,7 @@
   <subtitle><![CDATA[折腾是生命的自然属性]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-08-29T11:26:28.000Z</updated>
+  <updated>2015-11-18T15:14:23.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,21 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[yaf]]></title>
+    <link href="http://yoursite.com/2015/11/18/yaf/"/>
+    <id>http://yoursite.com/2015/11/18/yaf/</id>
+    <published>2015-11-18T15:14:08.000Z</published>
+    <updated>2015-11-18T15:14:23.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="yaf" scheme="http://yoursite.com/categories/yaf/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[yii2过滤器：Filters]]></title>
@@ -844,28 +859,6 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     </summary>
     
       <category term="php" scheme="http://yoursite.com/categories/php/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[归去来兮辞]]></title>
-    <link href="http://yoursite.com/2015/05/25/%E5%BD%92%E5%8E%BB%E6%9D%A5%E5%85%AE%E8%BE%9E/"/>
-    <id>http://yoursite.com/2015/05/25/归去来兮辞/</id>
-    <published>2015-05-25T15:54:46.000Z</published>
-    <updated>2015-11-18T15:05:19.000Z</updated>
-    <content type="html"><![CDATA[<h4 id="东晋_陶渊明"><strong>东晋 陶渊明</strong></h4><p>　　归去来兮，田园将芜胡不归！既自以心为形役，奚惆怅而独悲？悟已往之不谏，知来者可追；实迷途其未远，觉今是而昨非。</p>
-<p>　　舟遥遥以轻飏，风飘飘而吹衣。问征夫以前路，恨晨光之熹微。乃瞻衡宇，载欣载奔。僮仆欢迎，稚子候门。三径就荒，松菊犹存。携幼入室，有酒盈樽。引壶觞以自酌，眄庭柯以怡颜；倚南窗以寄傲，审容膝之易安。园日涉以成趣，门虽设而常关；策扶老以流憩，时矫首而遐观。云无心以出岫，鸟倦飞而知还；景翳翳以将入，抚孤松而盘桓。</p>
-<p>　　归去来兮，请息交以绝游。世与我而相违，复驾言兮焉求！悦亲戚之情话，乐琴书以消忧。农人告余以春及，将有事于西畴。或命巾车，或棹孤舟。既窈窕以寻壑，亦崎岖而经丘。木欣欣以向荣，泉涓涓而始流。善万物之得时，感吾生之行休。</p>
-<p>　　已矣乎！寓形宇内复几时，曷不委心任去留，胡为乎遑遑欲何之？富贵非吾愿，帝乡不可期。怀良辰以孤往，或植杖而耘耔。登东皋以舒啸，临清流而赋诗。聊乘化以归尽，乐夫天命复奚疑！</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[舟遥遥以轻飏, 风飘飘而吹衣]]>
-    
-    </summary>
-    
-      <category term="辞赋" scheme="http://yoursite.com/tags/%E8%BE%9E%E8%B5%8B/"/>
-    
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
