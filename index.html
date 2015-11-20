@@ -115,58 +115,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-11-19T09:55:46.000Z"><a href="/2015/11/19/rust/">2015-11-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/11/19/rust/">rust</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Mutability, 改变某个事物的能力，在Rust中的表现与其他语言有所不同。第一个方面就是没有默认状态：</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">x =</span> <span class="number">5</span>;</span><br><span class="line"><span class="variable">x =</span> <span class="number">6</span>;  // error!</span><br></pre></td></tr></table></figure>
-<p>我们可以通过<code>mut</code>关键字来声明：</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mut <span class="variable">x =</span> <span class="number">5</span>;</span><br><span class="line"><span class="variable">x =</span> <span class="number">6</span>; // no problem!</span><br></pre></td></tr></table></figure>
-<p>这是一个可变的变量绑定。当绑定是可变的时候，意味着你可以改变此绑定。所以在上面的例子中，<code>x</code>可以从一个值变为另一个值。</p>
-<p>如果你想</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      
-        <img src="">
-      
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2015-11-18T15:14:08.000Z"><a href="/2015/11/18/yaf/">2015-11-18</a></time>
       
       
@@ -585,6 +533,58 @@
 
 
 
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      
+        <img src="">
+      
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-26T04:05:49.000Z"><a href="/2015/07/26/yii2MVC应用/">2015-07-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/26/yii2MVC应用/">yii2MVC应用</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>MVC是应用中常用的组织架构，对于一些基础的东西这里不做赘述，只介绍一些不是很常用的但是颇有裨益的内容，希望在以后的开发中能够加以运用。</p>
+<h2 id="Controller"><strong>Controller</strong></h2><p>controller主要负责接收请求数据并转发给model层处理，然后将返回值交给view层展现给用户。</p>
+<h3 id="独立actions(standalone_actions)"><strong>独立actions(standalone actions)</strong></h3><p>satandalone actions 是指独立于controller的单独的一个action，一般负责一个独立功能，这个功能会被多方复用，比如获取验证码的captcha，捕获错误error。此类action需继承自<code>yii\base\Action</code>或是其子类，并实现其<code>run()</code>方法。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/07/26/yii2MVC应用/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
 
 <nav id="pagination">
   
@@ -618,7 +618,7 @@
   
     <li><a href="/categories/redis/">redis</a><small>2</small></li>
   
-    <li><a href="/categories/rust/">rust</a><small>2</small></li>
+    <li><a href="/categories/rust/">rust</a><small>1</small></li>
   
     <li><a href="/categories/yaf/">yaf</a><small>1</small></li>
   
@@ -642,10 +642,6 @@
       </li>
     
       <li>
-        <a href="/2015/11/19/rust/">rust</a>
-      </li>
-    
-      <li>
         <a href="/2015/11/18/yaf/">yaf</a>
       </li>
     
@@ -655,6 +651,10 @@
     
       <li>
         <a href="/2015/08/26/yii2独立模块：Modules/">yii2独立模块：Modules</a>
+      </li>
+    
+      <li>
+        <a href="/2015/08/15/PHP获取上周的起始时间和结束时间/">小技巧-PHP获取上周的起始时间和结束时间</a>
       </li>
     
   </ul>

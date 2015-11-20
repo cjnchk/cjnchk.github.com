@@ -37,28 +37,6 @@
   </entry>
   
   <entry>
-    <title><![CDATA[rust]]></title>
-    <link href="http://yoursite.com/2015/11/19/rust/"/>
-    <id>http://yoursite.com/2015/11/19/rust/</id>
-    <published>2015-11-19T09:55:46.000Z</published>
-    <updated>2015-11-20T07:29:29.000Z</updated>
-    <content type="html"><![CDATA[<p>Mutability, 改变某个事物的能力，在Rust中的表现与其他语言有所不同。第一个方面就是没有默认状态：</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">x =</span> <span class="number">5</span>;</span><br><span class="line"><span class="variable">x =</span> <span class="number">6</span>;  // error!</span><br></pre></td></tr></table></figure>
-<p>我们可以通过<code>mut</code>关键字来声明：</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mut <span class="variable">x =</span> <span class="number">5</span>;</span><br><span class="line"><span class="variable">x =</span> <span class="number">6</span>; // no problem!</span><br></pre></td></tr></table></figure>
-<p>这是一个可变的变量绑定。当绑定是可变的时候，意味着你可以改变此绑定。所以在上面的例子中，<code>x</code>可以从一个值变为另一个值。</p>
-<p>如果你想</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Mutability, 改变某个事物的能力，在Rust中的表现与其他语言有所不同。第一个方面就是没有默认状态：</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class=]]>
-    </summary>
-    
-      <category term="rust" scheme="http://yoursite.com/categories/rust/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[yaf]]></title>
     <link href="http://yoursite.com/2015/11/18/yaf/"/>
     <id>http://yoursite.com/2015/11/18/yaf/</id>
@@ -873,6 +851,21 @@ errors: <span class="number">0</span>, replies: <span class="number">1000</span>
     </summary>
     
       <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[php]]></title>
+    <link href="http://yoursite.com/2015/07/19/php5/"/>
+    <id>http://yoursite.com/2015/07/19/php5/</id>
+    <published>2015-07-19T09:55:28.000Z</published>
+    <updated>2015-08-15T08:59:14.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="php" scheme="http://yoursite.com/categories/php/"/>
     
   </entry>
   
